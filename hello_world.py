@@ -1,1 +1,1 @@
-print("Hello, World! Our members are: Sheharyar, Myra, ")
+print("Hello, World! Our members are: Sheharyar Khan, Myra, ")
