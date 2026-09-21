@@ -1,1 +1,1 @@
-print("Hello, World! Our members are: Sheharyar Khan, Myra, Jin Michael Qian,  ")
+print("Hello, World! Our members are: Sheharyar Khan, Myra, Jin Michael Qian, Hendry Jimenez Tejeda ")
