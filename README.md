@@ -68,3 +68,5 @@ Potential technologies include:
 ## 📌 Project Status
 
 Currently in the ideation and MVP planning stage.
+
+Hendry Jimenez Tejeda 09/21/2026
