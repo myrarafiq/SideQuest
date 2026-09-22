@@ -43,17 +43,6 @@ Our first version will focus on:
 * Matching based on group preferences
 * NYC recommendations filtered by budget, time, location, and category
 
-## 🛠️ Tech Stack
-
-*To be finalized as development begins.*
-
-Potential technologies include:
-
-* React / Next.js
-* NYC places/activity APIs
-* Supabase
-* Real-time WebSockets
-* JavaScript / TypeScript
 
 ## 👥 Team
 
@@ -67,6 +56,4 @@ Potential technologies include:
 
 ## 📌 Project Status
 
-Currently in the ideation and MVP planning stage.
-
-Hendry Jimenez Tejeda 09/21/2026
+Currently in the ideation and planning stage.
