@@ -1,0 +1,481 @@
+{
+  "source_id": "google-places-api-new",
+  "attribution": "Google Maps",
+  "note": "Place IDs only. Refresh IDs older than 12 months with a place-id field request.",
+  "places": [
+    {
+      "place_id": "ChIJxf7bQyxawokRO-rs19qn3fs",
+      "search_areas": [
+        "Manhattan"
+      ],
+      "first_seen_at": "2026-10-13T23:26:38.479015-04:00",
+      "last_seen_at": "2026-10-13T23:29:30.370984-04:00",
+      "text_queries": [
+        "outdoor activities"
+      ]
+    },
+    {
+      "place_id": "ChIJ5bQPhMdZwokRkTwKhVxhP1g",
+      "search_areas": [
+        "Manhattan"
+      ],
+      "first_seen_at": "2026-10-13T23:26:38.479015-04:00",
+      "last_seen_at": "2026-10-13T23:29:30.370984-04:00",
+      "text_queries": [
+        "outdoor activities"
+      ]
+    },
+    {
+      "place_id": "ChIJjaFpo0ZawokRBcOFUZ13CaE",
+      "search_areas": [
+        "Manhattan"
+      ],
+      "text_query": "outdoor activities",
+      "first_seen_at": "2026-10-13T23:26:38.479015-04:00",
+      "last_seen_at": "2026-10-13T23:26:38.479015-04:00"
+    },
+    {
+      "place_id": "ChIJL-CJmTFZwokRsPcqje_bn7w",
+      "search_areas": [
+        "Manhattan"
+      ],
+      "first_seen_at": "2026-10-13T23:26:38.479015-04:00",
+      "last_seen_at": "2026-10-13T23:29:30.370984-04:00",
+      "text_queries": [
+        "outdoor activities"
+      ]
+    },
+    {
+      "place_id": "ChIJ7eGKlw9ZwokRjb2Ui3bo5TU",
+      "search_areas": [
+        "Manhattan"
+      ],
+      "first_seen_at": "2026-10-13T23:26:38.479015-04:00",
+      "last_seen_at": "2026-10-13T23:29:30.370984-04:00",
+      "text_queries": [
+        "outdoor activities"
+      ]
+    },
+    {
+      "place_id": "ChIJR1pTRTxawokRyzoX5XQ_alI",
+      "search_areas": [
+        "Manhattan"
+      ],
+      "text_query": "outdoor activities",
+      "first_seen_at": "2026-10-13T23:26:38.479015-04:00",
+      "last_seen_at": "2026-10-13T23:26:38.479015-04:00"
+    },
+    {
+      "place_id": "ChIJmX1RgixawokR8Hm_owhnErQ",
+      "search_areas": [
+        "Manhattan"
+      ],
+      "text_query": "outdoor activities",
+      "first_seen_at": "2026-10-13T23:26:38.479015-04:00",
+      "last_seen_at": "2026-10-13T23:26:38.479015-04:00"
+    },
+    {
+      "place_id": "ChIJo6JHPNRbwokRPbj3pMx42Pw",
+      "search_areas": [
+        "Manhattan"
+      ],
+      "text_query": "outdoor activities",
+      "first_seen_at": "2026-10-13T23:26:38.479015-04:00",
+      "last_seen_at": "2026-10-13T23:26:38.479015-04:00"
+    },
+    {
+      "place_id": "ChIJRXlwg9RbwokRayKU1D7KKkE",
+      "search_areas": [
+        "Manhattan"
+      ],
+      "text_query": "outdoor activities",
+      "first_seen_at": "2026-10-13T23:26:38.479015-04:00",
+      "last_seen_at": "2026-10-13T23:26:38.479015-04:00"
+    },
+    {
+      "place_id": "ChIJJ6AzfHxZwokRcaYezPBb9_I",
+      "search_areas": [
+        "Manhattan"
+      ],
+      "text_query": "outdoor activities",
+      "first_seen_at": "2026-10-13T23:26:38.479015-04:00",
+      "last_seen_at": "2026-10-13T23:26:38.479015-04:00"
+    },
+    {
+      "place_id": "ChIJny1wp-NawokR5L9W0OH_yAg",
+      "search_areas": [
+        "Brooklyn"
+      ],
+      "first_seen_at": "2026-10-13T23:26:38.479015-04:00",
+      "last_seen_at": "2026-10-13T23:29:30.370984-04:00",
+      "text_queries": [
+        "outdoor activities"
+      ]
+    },
+    {
+      "place_id": "ChIJ5YPS4h1ZwokRqtLW333tU24",
+      "search_areas": [
+        "Brooklyn"
+      ],
+      "first_seen_at": "2026-10-13T23:26:38.479015-04:00",
+      "last_seen_at": "2026-10-13T23:29:30.370984-04:00",
+      "text_queries": [
+        "outdoor activities"
+      ]
+    },
+    {
+      "place_id": "ChIJsag5fa9FwokRZXAM9oijWfc",
+      "search_areas": [
+        "Brooklyn"
+      ],
+      "first_seen_at": "2026-10-13T23:26:38.479015-04:00",
+      "last_seen_at": "2026-10-13T23:29:30.370984-04:00",
+      "text_queries": [
+        "outdoor activities"
+      ]
+    },
+    {
+      "place_id": "ChIJi7e5hAhZwokRvzifUtpKltg",
+      "search_areas": [
+        "Brooklyn"
+      ],
+      "first_seen_at": "2026-10-13T23:26:38.479015-04:00",
+      "last_seen_at": "2026-10-13T23:29:30.370984-04:00",
+      "text_queries": [
+        "outdoor activities"
+      ]
+    },
+    {
+      "place_id": "ChIJr8BrBLJZwokRo7ggZM3JIaM",
+      "search_areas": [
+        "Brooklyn"
+      ],
+      "first_seen_at": "2026-10-13T23:26:38.479015-04:00",
+      "last_seen_at": "2026-10-13T23:29:30.370984-04:00",
+      "text_queries": [
+        "outdoor activities"
+      ]
+    },
+    {
+      "place_id": "ChIJASlatQVDwokRSMQXsr7x2_Y",
+      "search_areas": [
+        "Brooklyn"
+      ],
+      "first_seen_at": "2026-10-13T23:26:38.479015-04:00",
+      "last_seen_at": "2026-10-13T23:29:30.370984-04:00",
+      "text_queries": [
+        "outdoor activities"
+      ]
+    },
+    {
+      "place_id": "ChIJV64C9ENawokR5Tc526qeOnw",
+      "search_areas": [
+        "Brooklyn"
+      ],
+      "first_seen_at": "2026-10-13T23:26:38.479015-04:00",
+      "last_seen_at": "2026-10-13T23:29:30.370984-04:00",
+      "text_queries": [
+        "outdoor activities"
+      ]
+    },
+    {
+      "place_id": "ChIJEa5u_ERZwokRGbLwg2OnmhQ",
+      "search_areas": [
+        "Brooklyn",
+        "Manhattan"
+      ],
+      "first_seen_at": "2026-10-13T23:26:38.479015-04:00",
+      "last_seen_at": "2026-10-13T23:29:30.370984-04:00",
+      "text_queries": [
+        "outdoor activities"
+      ]
+    },
+    {
+      "place_id": "ChIJq8MTJodZwokRA8CUXoQ2SV8",
+      "search_areas": [
+        "Brooklyn",
+        "Manhattan"
+      ],
+      "first_seen_at": "2026-10-13T23:26:38.479015-04:00",
+      "last_seen_at": "2026-10-13T23:29:30.370984-04:00",
+      "text_queries": [
+        "outdoor activities"
+      ]
+    },
+    {
+      "place_id": "ChIJwYu_aA5bwokR2lxjW-QvQlc",
+      "search_areas": [
+        "Brooklyn"
+      ],
+      "first_seen_at": "2026-10-13T23:26:38.479015-04:00",
+      "last_seen_at": "2026-10-13T23:29:30.370984-04:00",
+      "text_queries": [
+        "outdoor activities"
+      ]
+    },
+    {
+      "place_id": "ChIJz0Sw3MFZwokRDJUw5q-g95s",
+      "search_areas": [
+        "Manhattan"
+      ],
+      "first_seen_at": "2026-10-13T23:28:21.823286-04:00",
+      "last_seen_at": "2026-10-13T23:29:30.370984-04:00",
+      "text_queries": [
+        "outdoor activities"
+      ]
+    },
+    {
+      "place_id": "ChIJOULQs6NZwokR1pt29dylXMk",
+      "search_areas": [
+        "Manhattan"
+      ],
+      "first_seen_at": "2026-10-13T23:28:21.823286-04:00",
+      "last_seen_at": "2026-10-13T23:29:30.370984-04:00",
+      "text_queries": [
+        "outdoor activities"
+      ]
+    },
+    {
+      "place_id": "ChIJ5yWju_5YwokR6dgLgzNaIBw",
+      "search_areas": [
+        "Manhattan"
+      ],
+      "first_seen_at": "2026-10-13T23:28:21.823286-04:00",
+      "last_seen_at": "2026-10-13T23:29:30.370984-04:00",
+      "text_queries": [
+        "outdoor activities"
+      ]
+    },
+    {
+      "place_id": "ChIJZ0CWp4JZwokRABX52bvJAn0",
+      "search_areas": [
+        "Manhattan"
+      ],
+      "first_seen_at": "2026-10-13T23:28:21.823286-04:00",
+      "last_seen_at": "2026-10-13T23:29:30.370984-04:00",
+      "text_queries": [
+        "outdoor activities"
+      ]
+    },
+    {
+      "place_id": "ChIJPxCEeZFZwokRzk5UghlXZWU",
+      "search_areas": [
+        "Manhattan"
+      ],
+      "text_queries": [
+        "restaurants"
+      ],
+      "first_seen_at": "2026-10-13T23:29:30.370984-04:00",
+      "last_seen_at": "2026-10-13T23:29:30.370984-04:00"
+    },
+    {
+      "place_id": "ChIJvSQIgqFZwokRFYQbJdzceSs",
+      "search_areas": [
+        "Manhattan"
+      ],
+      "text_queries": [
+        "restaurants"
+      ],
+      "first_seen_at": "2026-10-13T23:29:30.370984-04:00",
+      "last_seen_at": "2026-10-13T23:29:30.370984-04:00"
+    },
+    {
+      "place_id": "ChIJt7fMLIlZwokRCRtM9bNDg78",
+      "search_areas": [
+        "Manhattan"
+      ],
+      "text_queries": [
+        "restaurants"
+      ],
+      "first_seen_at": "2026-10-13T23:29:30.370984-04:00",
+      "last_seen_at": "2026-10-13T23:29:30.370984-04:00"
+    },
+    {
+      "place_id": "ChIJT4JpKxhawokRJsGwYfLpp60",
+      "search_areas": [
+        "Manhattan"
+      ],
+      "text_queries": [
+        "restaurants"
+      ],
+      "first_seen_at": "2026-10-13T23:29:30.370984-04:00",
+      "last_seen_at": "2026-10-13T23:29:30.370984-04:00"
+    },
+    {
+      "place_id": "ChIJlwif_1dYwokR9-Yo1aECAxk",
+      "search_areas": [
+        "Manhattan"
+      ],
+      "text_queries": [
+        "restaurants"
+      ],
+      "first_seen_at": "2026-10-13T23:29:30.370984-04:00",
+      "last_seen_at": "2026-10-13T23:29:30.370984-04:00"
+    },
+    {
+      "place_id": "ChIJ58OtM8pZwokRbd6DT6gcVys",
+      "search_areas": [
+        "Manhattan"
+      ],
+      "text_queries": [
+        "restaurants"
+      ],
+      "first_seen_at": "2026-10-13T23:29:30.370984-04:00",
+      "last_seen_at": "2026-10-13T23:29:30.370984-04:00"
+    },
+    {
+      "place_id": "ChIJm9ZmFPtYwokR4GjMlk_y7Fg",
+      "search_areas": [
+        "Manhattan"
+      ],
+      "text_queries": [
+        "restaurants"
+      ],
+      "first_seen_at": "2026-10-13T23:29:30.370984-04:00",
+      "last_seen_at": "2026-10-13T23:29:30.370984-04:00"
+    },
+    {
+      "place_id": "ChIJK0Nld6ZZwokRyOd9fsyinLY",
+      "search_areas": [
+        "Manhattan"
+      ],
+      "text_queries": [
+        "restaurants"
+      ],
+      "first_seen_at": "2026-10-13T23:29:30.370984-04:00",
+      "last_seen_at": "2026-10-13T23:29:30.370984-04:00"
+    },
+    {
+      "place_id": "ChIJoTXWl8dbwokRpKA2BJFVsGA",
+      "search_areas": [
+        "Manhattan"
+      ],
+      "text_queries": [
+        "restaurants"
+      ],
+      "first_seen_at": "2026-10-13T23:29:30.370984-04:00",
+      "last_seen_at": "2026-10-13T23:29:30.370984-04:00"
+    },
+    {
+      "place_id": "ChIJc1Vf7KFZwokR1YL2Rn9oxi8",
+      "search_areas": [
+        "Manhattan"
+      ],
+      "text_queries": [
+        "restaurants"
+      ],
+      "first_seen_at": "2026-10-13T23:29:30.370984-04:00",
+      "last_seen_at": "2026-10-13T23:29:30.370984-04:00"
+    },
+    {
+      "place_id": "ChIJi73FVqNbwokRZ4KIqLtNoFw",
+      "search_areas": [
+        "Brooklyn"
+      ],
+      "text_queries": [
+        "restaurants"
+      ],
+      "first_seen_at": "2026-10-13T23:29:30.370984-04:00",
+      "last_seen_at": "2026-10-13T23:29:30.370984-04:00"
+    },
+    {
+      "place_id": "ChIJ27nCgv9ZwokRSMWUV3OS1aM",
+      "search_areas": [
+        "Brooklyn"
+      ],
+      "text_queries": [
+        "restaurants"
+      ],
+      "first_seen_at": "2026-10-13T23:29:30.370984-04:00",
+      "last_seen_at": "2026-10-13T23:29:30.370984-04:00"
+    },
+    {
+      "place_id": "ChIJ2QZOdTpawokRU_eN_EPJaX8",
+      "search_areas": [
+        "Brooklyn"
+      ],
+      "text_queries": [
+        "restaurants"
+      ],
+      "first_seen_at": "2026-10-13T23:29:30.370984-04:00",
+      "last_seen_at": "2026-10-13T23:29:30.370984-04:00"
+    },
+    {
+      "place_id": "ChIJ7foAEE1ZwokRuCUXXm3WxGs",
+      "search_areas": [
+        "Brooklyn"
+      ],
+      "text_queries": [
+        "restaurants"
+      ],
+      "first_seen_at": "2026-10-13T23:29:30.370984-04:00",
+      "last_seen_at": "2026-10-13T23:29:30.370984-04:00"
+    },
+    {
+      "place_id": "ChIJkRWC9WFZwokRfa5Uzor3e-g",
+      "search_areas": [
+        "Brooklyn"
+      ],
+      "text_queries": [
+        "restaurants"
+      ],
+      "first_seen_at": "2026-10-13T23:29:30.370984-04:00",
+      "last_seen_at": "2026-10-13T23:29:30.370984-04:00"
+    },
+    {
+      "place_id": "ChIJP1sRv09awokRDPi8okFBDOM",
+      "search_areas": [
+        "Brooklyn"
+      ],
+      "text_queries": [
+        "restaurants"
+      ],
+      "first_seen_at": "2026-10-13T23:29:30.370984-04:00",
+      "last_seen_at": "2026-10-13T23:29:30.370984-04:00"
+    },
+    {
+      "place_id": "ChIJkyeocGFZwokRnutbkIk-vCo",
+      "search_areas": [
+        "Brooklyn"
+      ],
+      "text_queries": [
+        "restaurants"
+      ],
+      "first_seen_at": "2026-10-13T23:29:30.370984-04:00",
+      "last_seen_at": "2026-10-13T23:29:30.370984-04:00"
+    },
+    {
+      "place_id": "ChIJ9aMCWaxbwokRZHJGmTBxFtQ",
+      "search_areas": [
+        "Brooklyn"
+      ],
+      "text_queries": [
+        "restaurants"
+      ],
+      "first_seen_at": "2026-10-13T23:29:30.370984-04:00",
+      "last_seen_at": "2026-10-13T23:29:30.370984-04:00"
+    },
+    {
+      "place_id": "ChIJIQFtrv1bwokRkEaNwb8ltZQ",
+      "search_areas": [
+        "Brooklyn"
+      ],
+      "text_queries": [
+        "restaurants"
+      ],
+      "first_seen_at": "2026-10-13T23:29:30.370984-04:00",
+      "last_seen_at": "2026-10-13T23:29:30.370984-04:00"
+    },
+    {
+      "place_id": "ChIJ1U-nemFbwokRLVb7ULwu3B0",
+      "search_areas": [
+        "Brooklyn"
+      ],
+      "text_queries": [
+        "restaurants"
+      ],
+      "first_seen_at": "2026-10-13T23:29:30.370984-04:00",
+      "last_seen_at": "2026-10-13T23:29:30.370984-04:00"
+    }
+  ]
+}

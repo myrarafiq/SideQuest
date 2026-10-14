@@ -1,0 +1,9 @@
+{
+  "collected_at": "2026-10-13T22:48:41.550913-04:00",
+  "compared_to_snapshot": "2026-10-13",
+  "is_baseline": false,
+  "current_event_count": 882,
+  "new_event_count": 0,
+  "note": "Compared with snapshot 2026-10-13. An event is new when its guid was not in that snapshot.",
+  "new_events": []
+}

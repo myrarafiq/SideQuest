@@ -1,0 +1,45 @@
+{
+  "source_id": "google-places-api-new",
+  "source_name": "Google Places API (New)",
+  "attribution": "Google Maps",
+  "endpoint": "https://places.googleapis.com/v1/places:searchText",
+  "collected_at": "2026-10-13T23:29:30.370984-04:00",
+  "timezone": "America/New_York",
+  "filters": {
+    "text_queries": [
+      "outdoor activities",
+      "restaurants"
+    ],
+    "search_areas": [
+      "Manhattan",
+      "Brooklyn"
+    ],
+    "page_size_per_area": 10,
+    "location_restriction": "rectangle"
+  },
+  "row_count": 38,
+  "missing_field_counts": {
+    "place_id": 0,
+    "name": 0,
+    "formatted_address": 0,
+    "latitude": 0,
+    "longitude": 0,
+    "primary_type": 5,
+    "price_level": 20,
+    "price_min": 20,
+    "price_max": 24,
+    "weekday_hours": 4
+  },
+  "coordinates_delete_after": "2026-11-12T23:29:30.370984-05:00",
+  "notes": [
+    "Attribution required when displaying this content: Google Maps.",
+    "place_id may be stored and should be refreshed if it is more than 12 months old.",
+    "Latitude and longitude may be cached for 30 days, then deleted. This file records that deadline.",
+    "Names, addresses, types, hours, and prices are a field-verification sample, not a permanent venue database.",
+    "price_min is Google's inclusive startPrice. price_max is the exclusive endPrice. A missing price_max with price_max_unbounded means Google gave no upper bound.",
+    "A missing price range is unknown, not free. price_level is a separate category enum and is not a dollar amount.",
+    "search_areas is the query rectangle that returned the place, not a separately verified borough.",
+    "Blank CSV cells are null.",
+    "new_since_last_run.json lists place IDs that were absent from place_ids.json."
+  ]
+}

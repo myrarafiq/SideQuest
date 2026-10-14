@@ -1,0 +1,47 @@
+{
+  "source_id": "ticketmaster-discovery-v2",
+  "source_name": "Ticketmaster Discovery API",
+  "endpoint": "https://app.ticketmaster.com/discovery/v2/events.json",
+  "collected_at": "2026-10-13T23:48:54.331077-04:00",
+  "timezone": "America/New_York",
+  "filters": {
+    "state_code": "NY",
+    "cities": [
+      "New York",
+      "Brooklyn"
+    ],
+    "classifications": [
+      "music",
+      "sports",
+      "arts & theatre"
+    ],
+    "window_days": 14,
+    "sort": "date,asc",
+    "page_size_per_search": 40
+  },
+  "row_count": 159,
+  "priced_count": 21,
+  "missing_field_counts": {
+    "event_id": 0,
+    "title": 0,
+    "starttime": 1,
+    "venue_name": 0,
+    "venue_city": 0,
+    "latitude": 0,
+    "longitude": 0,
+    "price_min": 138,
+    "price_max": 138,
+    "ticket_url": 0,
+    "segment": 0
+  },
+  "notes": [
+    "Blank CSV cells are null.",
+    "Sample of music, sports, and arts events in New York and Brooklyn over the next 14 days, not the full catalog.",
+    "price_min and price_max are Ticketmaster's supplied range. They do not mean tickets remain for a group.",
+    "A missing price is unknown, not free. A 0 to 0 range from Ticketmaster is stored as missing.",
+    "starttime is the local start in the event timezone. A TBD date or time stays null.",
+    "venue_city is the venue's city name. New York is not recorded as a verified borough.",
+    "event_status such as onsale is Ticketmaster's sale status, not confirmed group inventory.",
+    "new_since_last_run.json lists event ids that were absent from the previous snapshot."
+  ]
+}
