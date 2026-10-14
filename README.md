@@ -721,3 +721,12 @@ Before acting, distinguish a request for planning from a request for changes. Fo
 
 The simplest faithful product is a lightweight shared room that helps friends choose from activities that already fit. Everything else should earn its place by reducing coordination effort, improving decision speed or fairness, or making the chosen plan easier to act on.
 
+## Team
+
+**Myra Rafiq**
+
+**Sheharyar Khan**
+
+**Hendry Jimenez Tejeda**
+
+**Jin Michael Qian**
