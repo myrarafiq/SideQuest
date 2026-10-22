@@ -9,7 +9,15 @@ import psycopg2
 
 ROOT = Path(__file__).resolve().parent
 DATA = ROOT / "data"
-TABLES = ("users", "activities", "categories", "activity_categories")
+TABLES = (
+    "users",
+    "activities",
+    "categories",
+    "activity_categories",
+    "rooms",
+    "room_members",
+    "preferences",
+)
 PLACEHOLDER_USERS = (
     ("Alex", 21),
     ("Jordan", 22),
@@ -71,9 +79,9 @@ def insert_activity(cur, **fields):
         INSERT INTO activities (
             source, source_item_id, title, description, location,
             latitude, longitude, starttime, endtime, timezone,
-            price_currency, price_min, price_max, url, collected_at
+            price_currency, price_min, price_max, url, status, collected_at
         )
-        VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)
+        VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)
         RETURNING activity_id
         """,
         (
@@ -91,6 +99,7 @@ def insert_activity(cur, **fields):
             fields.get("price_min"),
             fields.get("price_max"),
             fields.get("url"),
+            fields.get("status"),
             fields.get("collected_at"),
         ),
     )
@@ -144,6 +153,7 @@ def load_ticketmaster(cur):
                 price_min=parse_number(row.get("price_min")),
                 price_max=parse_number(row.get("price_max")),
                 url=blank_to_none(row.get("ticket_url")),
+                status=blank_to_none(row.get("event_status")),
                 collected_at=blank_to_none(row.get("collected_at")),
             )
             add_categories(
@@ -170,6 +180,7 @@ def load_places(cur):
                 price_min=parse_number(row.get("price_min")),
                 price_max=parse_number(row.get("price_max")),
                 url=blank_to_none(row.get("google_maps_uri")),
+                status=blank_to_none(row.get("business_status")),
                 collected_at=blank_to_none(row.get("collected_at")),
             )
             add_categories(
@@ -178,6 +189,59 @@ def load_places(cur):
                 split_values(row.get("types")) + split_values(row.get("search_areas")),
             )
     return path
+
+
+def seed_example_room(cur):
+    """One placeholder room so the new tables are visible. Not a product flow."""
+    cur.execute("SELECT user_id, name FROM users ORDER BY user_id")
+    members = cur.fetchall()
+    organizer_id = members[0][0]
+    cur.execute(
+        """
+        INSERT INTO rooms (
+            name, code, status, organizer_user_id, timezone,
+            planning_start, planning_end
+        )
+        VALUES (
+            'Friday hangout', 'FRI-01', 'open', %s,
+            'America/New_York',
+            '2026-10-23 18:00:00-04', '2026-10-23 23:00:00-04'
+        )
+        RETURNING room_id
+        """,
+        (organizer_id,),
+    )
+    room_id = cur.fetchone()[0]
+    for user_id, name in members:
+        role = "organizer" if user_id == organizer_id else "member"
+        cur.execute(
+            """
+            INSERT INTO room_members (
+                room_id, user_id, role, budget_hard, budget_ideal,
+                budget_currency, travel_limit_minutes, travel_mode, starting_area,
+                free_start, free_end
+            )
+            VALUES (
+                %s, %s, %s, 40, 25, 'USD', 45, 'transit', 'Brooklyn',
+                '2026-10-23 18:00:00-04', '2026-10-23 22:00:00-04'
+            )
+            """,
+            (room_id, user_id, role),
+        )
+    # Alex will not do a BBQ. Jordan will do horror if the group wants it.
+    # A blank user_id is the group's own preference.
+    alex_id = members[0][0]
+    jordan_id = members[1][0]
+    cur.execute(
+        """
+        INSERT INTO preferences (room_id, user_id, label, polarity, strength)
+        VALUES
+            (%s, %s, 'bbq', 'exclude', 'hard'),
+            (%s, %s, 'horror', 'avoid', 'flexible'),
+            (%s, NULL, 'outdoors', 'prefer', 'flexible')
+        """,
+        (room_id, alex_id, room_id, jordan_id, room_id),
+    )
 
 
 def main():
@@ -198,6 +262,18 @@ def main():
             cur.execute(
                 """
                 DROP TABLE IF EXISTS
+                    matched_plans,
+                    votes,
+                    deck_options,
+                    custom_suggestions,
+                    deck_rounds,
+                    activity_hours,
+                    availability_windows,
+                    preferences,
+                    user_preferences,
+                    room_preferences,
+                    room_members,
+                    rooms,
                     activity_categories,
                     park_event_categories,
                     place_place_types,
@@ -218,6 +294,7 @@ def main():
 
             for name, age in PLACEHOLDER_USERS:
                 cur.execute("INSERT INTO users (name, age) VALUES (%s, %s)", (name, age))
+            seed_example_room(cur)
 
             parks_path = load_parks(cur)
             tm_path = load_ticketmaster(cur)
