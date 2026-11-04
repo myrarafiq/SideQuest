@@ -1,0 +1,78 @@
+body {
+  margin: 0;
+  background: #f7f1e8;
+  color: #1d1910;
+  font: 16px/1.45 system-ui, sans-serif;
+}
+
+main {
+  max-width: 36rem;
+  margin: 0 auto;
+  padding: 1.5rem 1rem 3rem;
+}
+
+h1, h2, h3 {
+  font-weight: 650;
+  margin: 0 0 0.4rem;
+}
+
+h1 { font-size: 1.8rem; }
+h2 { font-size: 1.15rem; margin-top: 1.6rem; }
+h3 { font-size: 1rem; }
+
+.lede, .note, .status {
+  margin: 0.2rem 0 0;
+  color: #4a4338;
+}
+
+form {
+  display: grid;
+  gap: 0.6rem;
+  margin-top: 0.6rem;
+}
+
+label {
+  display: grid;
+  gap: 0.25rem;
+  font-size: 0.9rem;
+}
+
+input {
+  font: inherit;
+  padding: 0.45rem 0.55rem;
+  border: 1px solid #c9b8a4;
+  border-radius: 6px;
+  background: #fffdf9;
+}
+
+button {
+  font: inherit;
+  width: fit-content;
+  padding: 0.45rem 0.8rem;
+  border: 0;
+  border-radius: 6px;
+  background: #bd866a;
+  color: #1d1910;
+  cursor: pointer;
+}
+
+button:disabled {
+  opacity: 0.6;
+  cursor: wait;
+}
+
+.message {
+  margin-top: 1rem;
+  padding: 0.6rem 0.7rem;
+  background: #f3e0d6;
+  border-radius: 6px;
+}
+
+ul {
+  margin: 0.4rem 0 0;
+  padding-left: 1.1rem;
+}
+
+li { margin: 0.25rem 0; }
+
+a { color: #6d3f2c; }
