@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Side Quest</title>
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+  <main>
+    <h1>Side Quest</h1>
+    <p class="lede">Make a room, share the code, and see who showed up. This is the skeleton.</p>
+    <p id="db-status" class="status">Checking the database…</p>
+
+    <section>
+      <h2>Create a room</h2>
+      <form id="create-form">
+        <label>Your name <input name="name" required maxlength="80" autocomplete="nickname"></label>
+        <label>Room name <input name="room_name" required maxlength="80" placeholder="Friday hangout"></label>
+        <button type="submit">Create room</button>
+      </form>
+    </section>
+
+    <section>
+      <h2>Join with a code</h2>
+      <form id="join-form">
+        <label>Your name <input name="name" required maxlength="80" autocomplete="nickname"></label>
+        <label>Room code <input name="code" required maxlength="12" autocapitalize="characters"></label>
+        <button type="submit">Join room</button>
+      </form>
+    </section>
+
+    <p id="message" class="message" hidden></p>
+
+    <section id="room" hidden>
+      <h2 id="room-name"></h2>
+      <p>Code: <strong id="room-code"></strong> · <span id="room-status"></span></p>
+      <h3>People</h3>
+      <ul id="members"></ul>
+    </section>
+
+    <section>
+      <h2>Collected activities</h2>
+      <p class="note">These rows come from the database. They are not a group recommendation.</p>
+      <ul id="activities"></ul>
+    </section>
+  </main>
+  <script src="/static/app.js"></script>
+</body>
+</html>
