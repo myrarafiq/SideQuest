@@ -8,6 +8,39 @@ function showMessage(text) {
   message.textContent = text || "";
 }
 
+function youKey(code) {
+  return "sidequest-you:" + code;
+}
+
+function rememberYou(room) {
+  if (!room.you) return;
+  sessionStorage.setItem(youKey(room.code), JSON.stringify(room.you));
+}
+
+function savedYou(code) {
+  const raw = sessionStorage.getItem(youKey(code));
+  if (!raw) return null;
+  try {
+    return JSON.parse(raw);
+  } catch (error) {
+    return null;
+  }
+}
+
+function fillIntake(you) {
+  const form = document.querySelector("#intake-form");
+  form.hidden = !you;
+  if (!you) return;
+  form.dataset.userId = String(you.user_id);
+  form.dataset.roomCode = document.querySelector("#room-code").textContent;
+  form.budget_hard.value = you.budget_hard ?? "";
+  form.budget_ideal.value = you.budget_ideal ?? "";
+  form.starting_area.value = you.starting_area ?? "";
+  form.travel_limit_minutes.value = you.travel_limit_minutes ?? "";
+  form.free_start.value = you.free_start_local ?? "";
+  form.free_end.value = you.free_end_local ?? "";
+}
+
 function showRoom(room) {
   roomSection.hidden = false;
   document.querySelector("#room-name").textContent = room.name;
@@ -17,11 +50,14 @@ function showRoom(room) {
   list.replaceChildren();
   for (const member of room.members) {
     const item = document.createElement("li");
-    item.textContent = member.role === "organizer"
-      ? `${member.name} (organizer)`
-      : member.name;
+    const role = member.role === "organizer" ? " (organizer)" : "";
+    const ready = member.ready ? "ready" : "not ready";
+    item.textContent = `${member.name}${role} · ${ready}`;
     list.append(item);
   }
+  const you = room.you || savedYou(room.code);
+  if (room.you) rememberYou(room);
+  fillIntake(you);
   const url = new URL(window.location.href);
   url.searchParams.set("code", room.code);
   history.replaceState(null, "", url);
@@ -53,6 +89,31 @@ document.querySelector("#create-form").addEventListener("submit", async (event) 
     });
     showRoom(room);
     showMessage("Room created. Share the code.");
+  } catch (error) {
+    showMessage(error.message);
+  } finally {
+    button.disabled = false;
+  }
+});
+
+document.querySelector("#intake-form").addEventListener("submit", async (event) => {
+  event.preventDefault();
+  const form = event.currentTarget;
+  const button = form.querySelector("button");
+  button.disabled = true;
+  showMessage("");
+  try {
+    const room = await postJson("/api/rooms/" + encodeURIComponent(form.dataset.roomCode) + "/intake", {
+      user_id: Number(form.dataset.userId),
+      budget_hard: form.budget_hard.value,
+      budget_ideal: form.budget_ideal.value,
+      starting_area: form.starting_area.value,
+      travel_limit_minutes: form.travel_limit_minutes.value,
+      free_start: form.free_start.value,
+      free_end: form.free_end.value,
+    });
+    showRoom(room);
+    showMessage("Saved. You are ready. The room list does not show your budget or travel limit.");
   } catch (error) {
     showMessage(error.message);
   } finally {

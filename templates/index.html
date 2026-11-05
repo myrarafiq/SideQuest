@@ -9,7 +9,7 @@
 <body>
   <main>
     <h1>Side Quest</h1>
-    <p class="lede">Make a room, share the code, and see who showed up. This is the skeleton.</p>
+    <p class="lede">Make a room, share the code, and add your own constraints.</p>
     <p id="db-status" class="status">Checking the database…</p>
 
     <section>
@@ -36,7 +36,18 @@
       <h2 id="room-name"></h2>
       <p>Code: <strong id="room-code"></strong> · <span id="room-status"></span></p>
       <h3>People</h3>
+      <p class="note">The list shows who is ready. Budgets and travel limits stay on each person's own form.</p>
       <ul id="members"></ul>
+      <form id="intake-form" hidden>
+        <h3>Your constraints</h3>
+        <label>Hard budget (USD) <input name="budget_hard" type="number" min="0" step="0.01" required></label>
+        <label>Ideal budget (USD, optional) <input name="budget_ideal" type="number" min="0" step="0.01"></label>
+        <label>Starting area <input name="starting_area" required maxlength="80" placeholder="Brooklyn"></label>
+        <label>Travel limit (minutes) <input name="travel_limit_minutes" type="number" min="1" max="1440" step="1" required></label>
+        <label>Free from <input name="free_start" type="datetime-local" required></label>
+        <label>Free until <input name="free_end" type="datetime-local" required></label>
+        <button type="submit">Save and mark ready</button>
+      </form>
     </section>
 
     <section>
