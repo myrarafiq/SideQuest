@@ -8,30 +8,10 @@ function showMessage(text) {
   message.textContent = text || "";
 }
 
-function youKey(code) {
-  return "sidequest-you:" + code;
-}
-
-function rememberYou(room) {
-  if (!room.you) return;
-  sessionStorage.setItem(youKey(room.code), JSON.stringify(room.you));
-}
-
-function savedYou(code) {
-  const raw = sessionStorage.getItem(youKey(code));
-  if (!raw) return null;
-  try {
-    return JSON.parse(raw);
-  } catch (error) {
-    return null;
-  }
-}
-
 function fillIntake(you) {
   const form = document.querySelector("#intake-form");
   form.hidden = !you;
   if (!you) return;
-  form.dataset.userId = String(you.user_id);
   form.dataset.roomCode = document.querySelector("#room-code").textContent;
   form.budget_hard.value = you.budget_hard ?? "";
   form.budget_ideal.value = you.budget_ideal ?? "";
@@ -55,9 +35,7 @@ function showRoom(room) {
     item.textContent = `${member.name}${role} · ${ready}`;
     list.append(item);
   }
-  const you = room.you || savedYou(room.code);
-  if (room.you) rememberYou(room);
-  fillIntake(you);
+  fillIntake(room.you || null);
   const url = new URL(window.location.href);
   url.searchParams.set("code", room.code);
   history.replaceState(null, "", url);
@@ -104,7 +82,6 @@ document.querySelector("#intake-form").addEventListener("submit", async (event) 
   showMessage("");
   try {
     const room = await postJson("/api/rooms/" + encodeURIComponent(form.dataset.roomCode) + "/intake", {
-      user_id: Number(form.dataset.userId),
       budget_hard: form.budget_hard.value,
       budget_ideal: form.budget_ideal.value,
       starting_area: form.starting_area.value,
@@ -151,7 +128,7 @@ async function loadHealth() {
     }
     dbStatus.textContent = data.tables_ready
       ? "Database connected."
-      : "Database connected, but the tables are not created yet. Run python load_data.py once.";
+      : "Database connected, but the tables are not created yet. Apply schema.sql to an empty database.";
   } catch (error) {
     dbStatus.textContent = "Could not reach the server.";
   }
@@ -165,8 +142,17 @@ function formatWhen(value) {
 }
 
 async function loadActivities() {
-  const response = await fetch("/api/activities");
-  const data = await response.json();
+  let data;
+  try {
+    const response = await fetch("/api/activities");
+    data = await response.json();
+  } catch (error) {
+    activitiesList.replaceChildren();
+    const item = document.createElement("li");
+    item.textContent = "Could not load activities.";
+    activitiesList.append(item);
+    return;
+  }
   activitiesList.replaceChildren();
   if (data.error) {
     const item = document.createElement("li");
@@ -201,13 +187,25 @@ async function loadActivities() {
   }
 }
 
+async function readJson(response) {
+  try {
+    return await response.json();
+  } catch (error) {
+    return {};
+  }
+}
+
 async function loadRoomFromUrl() {
-  const code = new URLSearchParams(window.location.search).get("code");
+  const code = (new URLSearchParams(window.location.search).get("code") || "").trim().toUpperCase();
   if (!code) return;
   document.querySelector("#join-form [name=code]").value = code;
   const response = await fetch("/api/rooms/" + encodeURIComponent(code));
-  if (!response.ok) return;
-  showRoom(await response.json());
+  const data = await readJson(response);
+  if (!response.ok) {
+    showMessage(data.error || "Could not open that room.");
+    return;
+  }
+  showRoom(data);
 }
 
 loadHealth();

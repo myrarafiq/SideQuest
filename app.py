@@ -10,7 +10,7 @@ from zoneinfo import ZoneInfo
 
 import psycopg2
 import psycopg2.extras
-from flask import Flask, jsonify, render_template, request
+from flask import Flask, jsonify, render_template, request, session
 from psycopg2 import errors
 
 ROOT = Path(__file__).resolve().parent
@@ -33,14 +33,25 @@ load_dotenv(ROOT / ".env")
 
 app = Flask(__name__)
 app.config["SECRET_KEY"] = os.environ.get("FLASK_SECRET_KEY", "dev-skeleton-only")
+app.config["SESSION_COOKIE_HTTPONLY"] = True
+app.config["SESSION_COOKIE_SAMESITE"] = "Lax"
+app.config["SESSION_COOKIE_SECURE"] = bool(
+    os.environ.get("RAILWAY_ENVIRONMENT") or os.environ.get("RAILWAY_PROJECT_ID")
+)
+
+
+MISSING_TABLES = "Tables are missing. Apply schema.sql to an empty database."
+
+
+def on_railway():
+    return bool(os.environ.get("RAILWAY_ENVIRONMENT") or os.environ.get("RAILWAY_PROJECT_ID"))
 
 
 def database_url():
     url = os.environ.get("DATABASE_URL", "").strip()
     if not url:
         raise RuntimeError("DATABASE_URL is not set. Put the Railway public URL in .env.")
-    on_railway = bool(os.environ.get("RAILWAY_ENVIRONMENT") or os.environ.get("RAILWAY_PROJECT_ID"))
-    if "railway.internal" in url and not on_railway:
+    if "railway.internal" in url and not on_railway():
         raise RuntimeError(
             "DATABASE_URL is the private Railway host. From your laptop, use the "
             "public URL (host ends in rlwy.net)."
@@ -76,10 +87,42 @@ def parse_user_id(value):
     try:
         user_id = int(value)
     except (TypeError, ValueError):
-        raise ValueError("Create or join the room again before saving constraints.")
+        raise ValueError("Member id must be a whole number.")
     if user_id < 1:
-        raise ValueError("Create or join the room again before saving constraints.")
+        raise ValueError("Member id must be a whole number.")
     return user_id
+
+
+def bind_member(code, user_id):
+    """Remember this browser's member for one room. The signed cookie is the credential."""
+    rooms = dict(session.get("rooms") or {})
+    rooms[str(code)] = int(user_id)
+    session["rooms"] = rooms
+
+
+def session_member_id(code):
+    value = (session.get("rooms") or {}).get(str(code))
+    try:
+        user_id = int(value)
+    except (TypeError, ValueError):
+        return None
+    if user_id < 1:
+        return None
+    return user_id
+
+
+def claimed_member_id(raw, present):
+    if not present:
+        return None
+    return parse_user_id(raw)
+
+
+def reject_foreign_member(code, claimed):
+    """A user_id in the query or body is never authorization."""
+    member_id = session_member_id(code)
+    if claimed is not None and claimed != member_id:
+        return None, (jsonify({"error": "That member id does not match this browser."}), 403)
+    return member_id, None
 
 
 def parse_money(value, label, required):
@@ -238,7 +281,7 @@ def activities():
         return jsonify(
             {
                 "activities": [],
-                "error": "The activities table is not there yet. Run python load_data.py once.",
+                "error": "The activities table is not there yet. Apply schema.sql to an empty database.",
             }
         )
     except Exception as exc:
@@ -295,10 +338,11 @@ def create_room():
                 )
                 payload = room_payload(cur, code, user_id)
     except errors.UndefinedTable:
-        return jsonify({"error": "Tables are missing. Run python load_data.py once."}), 503
+        return jsonify({"error": MISSING_TABLES}), 503
     except Exception as exc:
         return jsonify({"error": str(exc)}), 503
 
+    bind_member(code, user_id)
     return jsonify(payload), 201
 
 
@@ -336,10 +380,11 @@ def join_room():
                 )
                 payload = room_payload(cur, code, user_id)
     except errors.UndefinedTable:
-        return jsonify({"error": "Tables are missing. Run python load_data.py once."}), 503
+        return jsonify({"error": MISSING_TABLES}), 503
     except Exception as exc:
         return jsonify({"error": str(exc)}), 503
 
+    bind_member(code, user_id)
     return jsonify(payload)
 
 
@@ -349,7 +394,16 @@ def save_intake(code):
     body = request.get_json(silent=True) or {}
     code = code.strip().upper()
     try:
-        user_id = parse_user_id(body.get("user_id"))
+        claimed = claimed_member_id(body.get("user_id"), "user_id" in body)
+    except ValueError as exc:
+        return jsonify({"error": str(exc)}), 400
+    member_id, rejected = reject_foreign_member(code, claimed)
+    if rejected:
+        return rejected
+    if member_id is None:
+        return jsonify({"error": "Create or join the room in this browser before saving constraints."}), 403
+
+    try:
         budget_hard = parse_money(body.get("budget_hard"), "Hard budget", required=True)
         budget_ideal = parse_money(body.get("budget_ideal"), "Ideal budget", required=False)
         if budget_ideal is not None and budget_ideal > budget_hard:
@@ -404,14 +458,14 @@ def save_intake(code):
                         free_start,
                         free_end,
                         room["room_id"],
-                        user_id,
+                        member_id,
                     ),
                 )
                 if cur.rowcount != 1:
                     return jsonify({"error": "You are not in this room."}), 404
-                payload = room_payload(cur, code, user_id)
+                payload = room_payload(cur, code, member_id)
     except errors.UndefinedTable:
-        return jsonify({"error": "Tables are missing. Run python load_data.py once."}), 503
+        return jsonify({"error": MISSING_TABLES}), 503
     except Exception as exc:
         return jsonify({"error": str(exc)}), 503
 
@@ -420,12 +474,21 @@ def save_intake(code):
 
 @app.get("/api/rooms/<code>")
 def get_room(code):
+    """Public room view. This browser's signed session reloads that member's constraints."""
+    code = code.strip().upper()
+    try:
+        claimed = claimed_member_id(request.args.get("user_id"), "user_id" in request.args)
+    except ValueError as exc:
+        return jsonify({"error": str(exc)}), 400
+    member_id, rejected = reject_foreign_member(code, claimed)
+    if rejected:
+        return rejected
     try:
         with get_conn() as conn:
             with conn.cursor() as cur:
-                payload = room_payload(cur, code.strip().upper())
+                payload = room_payload(cur, code, member_id)
     except errors.UndefinedTable:
-        return jsonify({"error": "Tables are missing. Run python load_data.py once."}), 503
+        return jsonify({"error": MISSING_TABLES}), 503
     except Exception as exc:
         return jsonify({"error": str(exc)}), 503
     if payload is None:
@@ -435,4 +498,4 @@ def get_room(code):
 
 if __name__ == "__main__":
     port = int(os.environ.get("PORT", "5000"))
-    app.run(host="0.0.0.0", port=port, debug=True)
+    app.run(host="0.0.0.0", port=port, debug=not on_railway())

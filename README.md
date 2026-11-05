@@ -4,6 +4,47 @@ Side Quest is an NYC-first activity-discovery and group-decision product. It hel
 
 Document date: October 13, 2026. This is a consolidated product and implementation brief, not a claim that the product, integrations, model, or partnerships already exist.
 
+## Current skeleton
+
+`app.py` is the class skeleton: one page, Flask routes, and Postgres. A person can create a room, join with a code, and save a hard budget, an optional ideal budget, a starting area, a travel limit, and one free window. The shared room list shows names and who is ready. Budgets and travel limits come back only with the signed session cookie set by create or join. The activities list reads rows from the database and is not a recommendation. Deck generation, voting, and matching are not built.
+
+### Install and run
+
+```text
+python -m venv venv
+```
+
+Windows: `venv\Scripts\activate`. macOS or Linux: `source venv/bin/activate`.
+
+```text
+pip install -r requirements.txt
+python app.py
+```
+
+`tzdata` is included because Windows does not ship the timezone database used for a room's free window.
+
+The app listens on `PORT`, or port 5000. Open `http://127.0.0.1:5000`.
+
+### Environment
+
+Put secrets in a gitignored `.env` file. Do not commit it.
+
+| Variable | Role |
+|---|---|
+| `DATABASE_URL` | Postgres URL. Required. From a laptop, use the public Railway host (`rlwy.net`), not `railway.internal`. The app adds `sslmode=require` when the URL does not set `sslmode`. |
+| `PORT` | Optional. Defaults to 5000. Railway sets this. |
+| `FLASK_SECRET_KEY` | Signs the browser session cookie. Local runs fall back to a dev value. Set a long random value on Railway before the next public deploy. |
+
+Create and join still ask for a name and a room name or code. The response sets an HttpOnly session cookie that maps the room code to that member. Refresh sends the cookie, and the API reads that member's row from the database. A `user_id` in a query string or request body is not accepted as identity. Another browser, or a browser that has not created or joined, sees the room and the ready list without the private form. There is no account login.
+
+### Database
+
+`schema.sql` defines the tables. `load_data.py` drops those tables, recreates them, and reloads collected files. Use it only on an empty database you mean to replace. Do not run it against the shared deployed database.
+
+### Deploy
+
+Railway uses `Procfile`: `web: python app.py`. Set `DATABASE_URL` and `FLASK_SECRET_KEY` on the service. The service provides `PORT`.
+
 ## How Cursor should use this document
 
 Read this document before implementing features, changing product behavior, or selecting integrations. Use it as the project context, while treating the current repository, explicit owner decisions, and newer instructions as authoritative for what has actually been built.
