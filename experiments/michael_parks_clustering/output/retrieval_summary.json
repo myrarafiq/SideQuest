@@ -1,0 +1,18 @@
+{
+  "catalog_note": "Search against the historical NYC Parks catalog collected on 2026-10-13 for sessions from 2026-10-13 through 2026-10-27. This is not a statement that any activity is available now.",
+  "query_note": "Each of the 126 test activities supplies its own categories and coordinates. These are activity-derived queries, not observed user searches. Recall against exhaustive retrieval is top-5 overlap divided by 5. It is not user satisfaction or recommendation accuracy.",
+  "catalog_size": 293,
+  "query_count": 126,
+  "top_n": 5,
+  "average_candidate_pool_size": 79.66666666666667,
+  "average_baseline_distance_calculations": 293,
+  "average_v1_distance_calculations": 83.66666666666667,
+  "percentage_reduction_in_distance_calculations": 71.44482366325369,
+  "mean_top5_recall_against_exhaustive_retrieval": 0.8841269841269842,
+  "queries_with_less_than_full_recall": 43,
+  "unseen_category_queries": {
+    "query_count": 8,
+    "mean_top5_recall_against_exhaustive_retrieval": 0.975,
+    "queries_with_less_than_full_recall": 1
+  }
+}

@@ -1,0 +1,102 @@
+{
+  "catalog_note": "Search against the historical NYC Parks catalog collected on 2026-10-13 for sessions from 2026-10-13 through 2026-10-27. This is not a statement that any activity is available now.",
+  "query_note": "Explicitly hypothetical search profile. It is not an observed user search.",
+  "query": {
+    "categories": [
+      "Fitness",
+      "Exercise Classes"
+    ],
+    "latitude": 40.73,
+    "longitude": -73.94
+  },
+  "tie_break": "Equal feature-space distances keep the lexicographically smaller activity id.",
+  "distance": "Euclidean distance in the saved training feature space.",
+  "unknown_labels": [],
+  "encoding_policy": "Category labels absent from the training vocabulary are reported and omitted. They do not add columns. Known labels stay raw 0/1 indicators.",
+  "baseline": {
+    "candidate_pool_size": 293,
+    "distance_calculations": 293,
+    "results": [
+      {
+        "rank": 1,
+        "activity_id": "act_3be521c871f1",
+        "title": "Cardio Sculpt",
+        "location": "Queens Public Library - Sunnyside",
+        "distance": 1.0321956392777807
+      },
+      {
+        "rank": 2,
+        "activity_id": "act_9b099f5aa427",
+        "title": "Cardio Sculpt",
+        "location": "Queensbridge Park House (in Queensbridge Park)",
+        "distance": 1.0692709139879752
+      },
+      {
+        "rank": 3,
+        "activity_id": "act_44adfe37d2c7",
+        "title": "Dance Fitness World Wide Beats",
+        "location": "Astoria Love Family Enrichment Center",
+        "distance": 1.12932212578215
+      },
+      {
+        "rank": 4,
+        "activity_id": "act_912a62de3116",
+        "title": "Bodyweight Circuit Training",
+        "location": "Pier 35 (in East River Waterfront Esplanade)",
+        "distance": 1.1689418282909372
+      },
+      {
+        "rank": 5,
+        "activity_id": "act_677ceab97f27",
+        "title": "Strong For Life Circuit Training",
+        "location": "BPL- Macon Library",
+        "distance": 1.2116751639485757
+      }
+    ]
+  },
+  "v1": {
+    "cluster": 2,
+    "candidate_pool_size": 72,
+    "centroid_comparisons": 4,
+    "distance_calculations": 76,
+    "results": [
+      {
+        "rank": 1,
+        "activity_id": "act_3be521c871f1",
+        "title": "Cardio Sculpt",
+        "location": "Queens Public Library - Sunnyside",
+        "distance": 1.0321956392777807
+      },
+      {
+        "rank": 2,
+        "activity_id": "act_9b099f5aa427",
+        "title": "Cardio Sculpt",
+        "location": "Queensbridge Park House (in Queensbridge Park)",
+        "distance": 1.0692709139879752
+      },
+      {
+        "rank": 3,
+        "activity_id": "act_44adfe37d2c7",
+        "title": "Dance Fitness World Wide Beats",
+        "location": "Astoria Love Family Enrichment Center",
+        "distance": 1.12932212578215
+      },
+      {
+        "rank": 4,
+        "activity_id": "act_912a62de3116",
+        "title": "Bodyweight Circuit Training",
+        "location": "Pier 35 (in East River Waterfront Esplanade)",
+        "distance": 1.1689418282909372
+      },
+      {
+        "rank": 5,
+        "activity_id": "act_677ceab97f27",
+        "title": "Strong For Life Circuit Training",
+        "location": "BPL- Macon Library",
+        "distance": 1.2116751639485757
+      }
+    ]
+  },
+  "top5_overlap": 5,
+  "recall_against_exhaustive_retrieval": 1.0
+}

@@ -1,0 +1,7 @@
+# Experiment-only. The Flask app keeps its own requirements.txt.
+# These are the versions used to produce the saved outputs on Python 3.14.
+numpy==2.5.5
+scipy==1.18.1
+scikit-learn==1.9.1
+matplotlib==3.11.2
+joblib==1.6.0

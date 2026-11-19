@@ -1,0 +1,24 @@
+[
+  {
+    "kind": "nested_category_labels_combined",
+    "title": "Forest Fitness",
+    "location": "Margaret Corbin Circle (in Fort Tryon Park)",
+    "session_count": 7,
+    "observed_category_lists": [
+      [
+        "Fitness",
+        "Outdoor Fitness"
+      ],
+      [
+        "Fitness",
+        "Outdoor Fitness",
+        "Exercise Classes"
+      ]
+    ],
+    "resolved_categories": [
+      "Fitness",
+      "Outdoor Fitness",
+      "Exercise Classes"
+    ]
+  }
+]

@@ -1,0 +1,185 @@
+{
+  "document_role": "training_derived_kmeans_fit",
+  "distinct_from": "output/model_specification.json is the preparation proposal fit on all 419 eligible activities. This file replaces that origin, vocabulary, and multiplier with values calculated from the 293 training activities. The preparation file is unchanged.",
+  "not_used": {
+    "feature_matrix_csv": "output/feature_matrix.csv was not read.",
+    "full_data_geographic_multiplier": 0.1293623285197449
+  },
+  "split": {
+    "source": "activity_id values with model_ready=true in output/activities.csv, sorted, then sklearn train_test_split",
+    "test_size": 0.3,
+    "random_state": 42,
+    "shuffle": true,
+    "train_n": 293,
+    "test_n": 126,
+    "split_file": "output/data_split.csv"
+  },
+  "category_encoding": "Raw multi-hot 0/1 columns. Labels are not ordinal ids and columns are not standardized.",
+  "category_vocabulary_source": "Distinct category strings on training activities only, sorted alphabetically.",
+  "category_vocabulary": [
+    "Accessible Activities",
+    "Adventure Courses/Rock Climbing",
+    "Art",
+    "Arts & Crafts",
+    "Arts, Culture & Fun Series",
+    "Baseball/Softball",
+    "Basketball/Netball",
+    "Best for Kids",
+    "Bicycling",
+    "Birding",
+    "Concerts",
+    "Dance",
+    "Dance Classes",
+    "Dogs",
+    "Education",
+    "Exercise Classes",
+    "Fall Festivals",
+    "Festivals",
+    "Film",
+    "Fishing",
+    "Fitness",
+    "Food",
+    "Free Summer Concerts",
+    "Free Summer Movies",
+    "Games",
+    "Gardening",
+    "Halloween",
+    "Hiking",
+    "Hispanic Heritage Month",
+    "History",
+    "It's My Park",
+    "Movies Under the Stars",
+    "Native American Heritage Month",
+    "Nature",
+    "Open Garden Weekend",
+    "Open House New York",
+    "Outdoor Fitness",
+    "Playgrounds",
+    "Recreation Center Programming",
+    "Running/Jogging",
+    "STEM Classes",
+    "Seniors",
+    "Shape Up NYC",
+    "Social Sports",
+    "Sports",
+    "Sports Camps",
+    "Strength Training/Weightlifting",
+    "Swimming/Aquatics",
+    "Talks",
+    "Tours",
+    "Track & Field",
+    "Urban Park Rangers",
+    "Volunteer",
+    "Walking",
+    "Waterfront",
+    "Wildlife",
+    "Workshops",
+    "Yoga & Pilates Classes"
+  ],
+  "category_dimension": 58,
+  "zero_variance_category_labels": [],
+  "zero_variance_handling": "Zero-variance training category columns are retained as raw 0/1 indicators. A constant column does not change Euclidean distances, and its population variance adds 0 to the numerator of the geographic multiplier.",
+  "location_encoding": {
+    "projection": "equirectangular kilometers from the training median origin",
+    "earth_radius_km": 6371.0,
+    "origin_latitude": 40.73609924,
+    "origin_longitude": -73.93669891,
+    "origin_rule": "Coordinate-wise median of the 293 training activities. An odd count uses the middle sorted value.",
+    "easting_km": "6371 * cos(origin_latitude) * radians(longitude - origin_longitude)",
+    "northing_km": "6371 * radians(latitude - origin_latitude)"
+  },
+  "geographic_multiplier": {
+    "formula": "sqrt(sum of training category-column population variances / sum of training projected-coordinate population variances)",
+    "population_variance": "sum((value - mean)^2) / n",
+    "category_block_variance": 3.01345385502452,
+    "location_block_variance_before_weight": 176.74996203486705,
+    "value": 0.13057276721343358,
+    "applied_to": "both projected coordinate columns, on training and test"
+  },
+  "test_application": "Test rows use the saved training vocabulary, origin, and multiplier. Test labels do not enter the vocabulary.",
+  "unseen_test_labels": [
+    "Astronomy",
+    "Climate Week NYC",
+    "Family Camping with the Urban Park Rangers",
+    "Football",
+    "Kayaking and Canoeing",
+    "Markets",
+    "Theater"
+  ],
+  "test_activities_with_unseen_labels": [
+    {
+      "activity_id": "act_77c7c2dd979a",
+      "title": "Cuidado de Árboles y Arbustos para Jardineros Comunitarios",
+      "unseen_labels": [
+        "Climate Week NYC"
+      ]
+    },
+    {
+      "activity_id": "act_1fbe424c3a57",
+      "title": "Autumn Starfest",
+      "unseen_labels": [
+        "Astronomy"
+      ]
+    },
+    {
+      "activity_id": "act_f7b80594c262",
+      "title": "Stargazing in the Park",
+      "unseen_labels": [
+        "Astronomy"
+      ]
+    },
+    {
+      "activity_id": "act_de7b0dbf59f5",
+      "title": "Phoenix Community Garden Farm Stand",
+      "unseen_labels": [
+        "Markets"
+      ]
+    },
+    {
+      "activity_id": "act_a83b17067a79",
+      "title": "C-Words: Six New Short Plays Presented By Creative Women New York",
+      "unseen_labels": [
+        "Theater"
+      ]
+    },
+    {
+      "activity_id": "act_1adc997bcaec",
+      "title": "Family Camping: Bronx",
+      "unseen_labels": [
+        "Family Camping with the Urban Park Rangers"
+      ]
+    },
+    {
+      "activity_id": "act_4e9b5d6ac69a",
+      "title": "Paddle and Pick Up at Concrete Plant Park",
+      "unseen_labels": [
+        "Kayaking and Canoeing"
+      ]
+    },
+    {
+      "activity_id": "act_954d4e4692ca",
+      "title": "Every Play Counts, Every Player Matters",
+      "unseen_labels": [
+        "Football"
+      ]
+    }
+  ],
+  "test_activities_retained": 126,
+  "kmeans": {
+    "k": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8
+    ],
+    "random_state": 42,
+    "n_init": 10,
+    "fit_on": "training vectors only",
+    "test_sse": "Sum of squared Euclidean distances from each test vector to the nearest training center. Centers are not refit on test data.",
+    "k_selected": null
+  }
+}

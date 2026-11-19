@@ -1,0 +1,677 @@
+{
+  "source_model": "output/kmeans_candidates.joblib",
+  "retrained": false,
+  "geographic_multiplier": 0.13057276721343358,
+  "very_small_training_count_below": 10,
+  "profiles": [
+    {
+      "k": 2,
+      "very_small_rule": "training_count < 10",
+      "clusters": [
+        {
+          "cluster_id": 0,
+          "training_count": 161,
+          "test_count": 73,
+          "total_count": 234,
+          "top_training_categories": [
+            {
+              "category": "Fitness",
+              "training_members": 64,
+              "training_membership_percentage": 39.75155279503105
+            },
+            {
+              "category": "Exercise Classes",
+              "training_members": 55,
+              "training_membership_percentage": 34.161490683229815
+            },
+            {
+              "category": "Shape Up NYC",
+              "training_members": 50,
+              "training_membership_percentage": 31.055900621118013
+            },
+            {
+              "category": "Best for Kids",
+              "training_members": 32,
+              "training_membership_percentage": 19.875776397515526
+            },
+            {
+              "category": "Recreation Center Programming",
+              "training_members": 31,
+              "training_membership_percentage": 19.25465838509317
+            }
+          ],
+          "geographic_center": {
+            "latitude": 40.80122361761242,
+            "longitude": -73.90131963482608,
+            "easting_km": 2.9808804823846864,
+            "northing_km": 7.241500391385695,
+            "source": "Last two coordinates of the saved center, divided by the saved multiplier, then inverted with the saved equirectangular projection."
+          },
+          "nearest_training_activities": [
+            {
+              "activity_id": "act_4f64023d4ec6",
+              "title": "NYRR Open Run: St. Marys Park",
+              "location": "St. Mary's Annual 5K Start",
+              "categories": [
+                "Running/Jogging"
+              ],
+              "squared_distance_to_center": 1.5884321165801742
+            },
+            {
+              "activity_id": "act_7c506adce299",
+              "title": "NYRR Open Run: Astoria Park",
+              "location": "Astoria Park",
+              "categories": [
+                "Running/Jogging"
+              ],
+              "squared_distance_to_center": 1.698590458821617
+            },
+            {
+              "activity_id": "act_ade08613368a",
+              "title": "Low Impact Bodyweight Circuit Training",
+              "location": "Astoria Pool Deck (in Astoria Park)",
+              "categories": [
+                "Fitness",
+                "Shape Up NYC",
+                "Exercise Classes"
+              ],
+              "squared_distance_to_center": 1.7033994599099602
+            }
+          ],
+          "empty": false,
+          "very_small": false
+        },
+        {
+          "cluster_id": 1,
+          "training_count": 132,
+          "test_count": 53,
+          "total_count": 185,
+          "top_training_categories": [
+            {
+              "category": "Arts & Crafts",
+              "training_members": 34,
+              "training_membership_percentage": 25.757575757575758
+            },
+            {
+              "category": "Best for Kids",
+              "training_members": 33,
+              "training_membership_percentage": 25.0
+            },
+            {
+              "category": "Exercise Classes",
+              "training_members": 33,
+              "training_membership_percentage": 25.0
+            },
+            {
+              "category": "Fitness",
+              "training_members": 32,
+              "training_membership_percentage": 24.242424242424242
+            },
+            {
+              "category": "Shape Up NYC",
+              "training_members": 29,
+              "training_membership_percentage": 21.96969696969697
+            }
+          ],
+          "geographic_center": {
+            "latitude": 40.64733819672954,
+            "longitude": -73.99736830513864,
+            "easting_km": -5.111699291684867,
+            "northing_km": -9.86977769535284,
+            "source": "Last two coordinates of the saved center, divided by the saved multiplier, then inverted with the saved equirectangular projection."
+          },
+          "nearest_training_activities": [
+            {
+              "activity_id": "act_faec23b859a6",
+              "title": "Rights of People With Disabilities Training",
+              "location": "East Fourth Street Community Garden",
+              "categories": [
+                "Education"
+              ],
+              "squared_distance_to_center": 1.3434520665479233
+            },
+            {
+              "activity_id": "act_1fe767f91150",
+              "title": "Fall Foliage Canoeing",
+              "location": "Audubon Center at the Boathouse (in Prospect Park)",
+              "categories": [
+                "Urban Park Rangers"
+              ],
+              "squared_distance_to_center": 1.486457224847276
+            },
+            {
+              "activity_id": "act_7142570e47ad",
+              "title": "NYRR Open Run: Shore Road Park",
+              "location": "Lawn Near 79th Street Entrance (in Shore Park and Parkway)",
+              "categories": [
+                "Running/Jogging"
+              ],
+              "squared_distance_to_center": 1.6345571974016082
+            }
+          ],
+          "empty": false,
+          "very_small": false
+        }
+      ]
+    },
+    {
+      "k": 3,
+      "very_small_rule": "training_count < 10",
+      "clusters": [
+        {
+          "cluster_id": 0,
+          "training_count": 110,
+          "test_count": 48,
+          "total_count": 158,
+          "top_training_categories": [
+            {
+              "category": "Fitness",
+              "training_members": 32,
+              "training_membership_percentage": 29.09090909090909
+            },
+            {
+              "category": "Best for Kids",
+              "training_members": 25,
+              "training_membership_percentage": 22.727272727272727
+            },
+            {
+              "category": "Exercise Classes",
+              "training_members": 25,
+              "training_membership_percentage": 22.727272727272727
+            },
+            {
+              "category": "Arts & Crafts",
+              "training_members": 24,
+              "training_membership_percentage": 21.818181818181817
+            },
+            {
+              "category": "Shape Up NYC",
+              "training_members": 24,
+              "training_membership_percentage": 21.818181818181817
+            }
+          ],
+          "geographic_center": {
+            "latitude": 40.83098331898,
+            "longitude": -73.90999409980364,
+            "easting_km": 2.250013520876928,
+            "northing_km": 10.550628201917473,
+            "source": "Last two coordinates of the saved center, divided by the saved multiplier, then inverted with the saved equirectangular projection."
+          },
+          "nearest_training_activities": [
+            {
+              "activity_id": "act_4e820b6263ec",
+              "title": "Magnetic Archery and Foam Axe Throwing",
+              "location": "Crotona Nature Center (in Crotona Park)",
+              "categories": [
+                "Urban Park Rangers"
+              ],
+              "squared_distance_to_center": 1.3605416341029677
+            },
+            {
+              "activity_id": "act_4f64023d4ec6",
+              "title": "NYRR Open Run: St. Marys Park",
+              "location": "St. Mary's Annual 5K Start",
+              "categories": [
+                "Running/Jogging"
+              ],
+              "squared_distance_to_center": 1.45491991094899
+            },
+            {
+              "activity_id": "act_3a04451a22b3",
+              "title": "Broadway Beautification",
+              "location": "Broadway/Arden Entrance (in Fort Tryon Park)",
+              "categories": [
+                "Volunteer"
+              ],
+              "squared_distance_to_center": 1.5843492840332627
+            }
+          ],
+          "empty": false,
+          "very_small": false
+        },
+        {
+          "cluster_id": 1,
+          "training_count": 146,
+          "test_count": 60,
+          "total_count": 206,
+          "top_training_categories": [
+            {
+              "category": "Fitness",
+              "training_members": 62,
+              "training_membership_percentage": 42.465753424657535
+            },
+            {
+              "category": "Exercise Classes",
+              "training_members": 60,
+              "training_membership_percentage": 41.0958904109589
+            },
+            {
+              "category": "Shape Up NYC",
+              "training_members": 53,
+              "training_membership_percentage": 36.3013698630137
+            },
+            {
+              "category": "Best for Kids",
+              "training_members": 30,
+              "training_membership_percentage": 20.54794520547945
+            },
+            {
+              "category": "Arts & Crafts",
+              "training_members": 29,
+              "training_membership_percentage": 19.863013698630137
+            }
+          ],
+          "geographic_center": {
+            "latitude": 40.69409660964658,
+            "longitude": -73.92577133462055,
+            "easting_km": 0.9207027562967799,
+            "northing_km": -4.670479401027722,
+            "source": "Last two coordinates of the saved center, divided by the saved multiplier, then inverted with the saved equirectangular projection."
+          },
+          "nearest_training_activities": [
+            {
+              "activity_id": "act_677ceab97f27",
+              "title": "Strong For Life Circuit Training",
+              "location": "BPL- Macon Library",
+              "categories": [
+                "Fitness",
+                "Shape Up NYC",
+                "Exercise Classes"
+              ],
+              "squared_distance_to_center": 1.3557744172068866
+            },
+            {
+              "activity_id": "act_8cf90b175773",
+              "title": "Total Body Fitness",
+              "location": "Tilden Senior Center",
+              "categories": [
+                "Fitness",
+                "Shape Up NYC",
+                "Exercise Classes"
+              ],
+              "squared_distance_to_center": 1.568691734653852
+            },
+            {
+              "activity_id": "act_ae3c0f6e529a",
+              "title": "Reflections on Growing Season",
+              "location": "Isabahlia Community Garden",
+              "categories": [
+                "Gardening"
+              ],
+              "squared_distance_to_center": 1.6091186675773839
+            }
+          ],
+          "empty": false,
+          "very_small": false
+        },
+        {
+          "cluster_id": 2,
+          "training_count": 37,
+          "test_count": 18,
+          "total_count": 55,
+          "top_training_categories": [
+            {
+              "category": "Arts & Crafts",
+              "training_members": 11,
+              "training_membership_percentage": 29.72972972972973
+            },
+            {
+              "category": "Best for Kids",
+              "training_members": 10,
+              "training_membership_percentage": 27.027027027027028
+            },
+            {
+              "category": "Games",
+              "training_members": 10,
+              "training_membership_percentage": 27.027027027027028
+            },
+            {
+              "category": "Festivals",
+              "training_members": 6,
+              "training_membership_percentage": 16.216216216216218
+            },
+            {
+              "category": "History",
+              "training_members": 6,
+              "training_membership_percentage": 16.216216216216218
+            }
+          ],
+          "geographic_center": {
+            "latitude": 40.58646957588378,
+            "longitude": -74.12170572033243,
+            "easting_km": -15.587746987952956,
+            "northing_km": -16.638059525252775,
+            "source": "Last two coordinates of the saved center, divided by the saved multiplier, then inverted with the saved equirectangular projection."
+          },
+          "nearest_training_activities": [
+            {
+              "activity_id": "act_29bcde75082d",
+              "title": "GCC/PPOW: Forest Restoration Workshop on the Todt Hill Blue Trail",
+              "location": "1 Helena Road, SI, NY (in High Rock Park)",
+              "categories": [
+                "Volunteer"
+              ],
+              "squared_distance_to_center": 1.2745301983959154
+            },
+            {
+              "activity_id": "act_6b6d838a4ee6",
+              "title": "Greenbelt Adult Hike - Paulo’s Peak",
+              "location": "Greenbelt Nature Center (in Blood Root Valley)",
+              "categories": [
+                "Hiking"
+              ],
+              "squared_distance_to_center": 1.4705654598216495
+            },
+            {
+              "activity_id": "act_45d98e025ec9",
+              "title": "Wagner College: Children's Learn to Swim (Level 2)",
+              "location": "Wagner College Pool - Spiro Sports Center",
+              "categories": [
+                "Swimming/Aquatics"
+              ],
+              "squared_distance_to_center": 1.6310220690929473
+            }
+          ],
+          "empty": false,
+          "very_small": false
+        }
+      ]
+    },
+    {
+      "k": 4,
+      "very_small_rule": "training_count < 10",
+      "clusters": [
+        {
+          "cluster_id": 0,
+          "training_count": 100,
+          "test_count": 40,
+          "total_count": 140,
+          "top_training_categories": [
+            {
+              "category": "Best for Kids",
+              "training_members": 25,
+              "training_membership_percentage": 25.0
+            },
+            {
+              "category": "Arts & Crafts",
+              "training_members": 24,
+              "training_membership_percentage": 24.0
+            },
+            {
+              "category": "Fitness",
+              "training_members": 22,
+              "training_membership_percentage": 22.0
+            },
+            {
+              "category": "Games",
+              "training_members": 21,
+              "training_membership_percentage": 21.0
+            },
+            {
+              "category": "Nature",
+              "training_members": 19,
+              "training_membership_percentage": 19.0
+            }
+          ],
+          "geographic_center": {
+            "latitude": 40.834523765066,
+            "longitude": -73.910159996136,
+            "easting_km": 2.23603592702259,
+            "northing_km": 10.94430784473926,
+            "source": "Last two coordinates of the saved center, divided by the saved multiplier, then inverted with the saved equirectangular projection."
+          },
+          "nearest_training_activities": [
+            {
+              "activity_id": "act_4e820b6263ec",
+              "title": "Magnetic Archery and Foam Axe Throwing",
+              "location": "Crotona Nature Center (in Crotona Park)",
+              "categories": [
+                "Urban Park Rangers"
+              ],
+              "squared_distance_to_center": 1.294983237910844
+            },
+            {
+              "activity_id": "act_4f64023d4ec6",
+              "title": "NYRR Open Run: St. Marys Park",
+              "location": "St. Mary's Annual 5K Start",
+              "categories": [
+                "Running/Jogging"
+              ],
+              "squared_distance_to_center": 1.430520938469579
+            },
+            {
+              "activity_id": "act_3a04451a22b3",
+              "title": "Broadway Beautification",
+              "location": "Broadway/Arden Entrance (in Fort Tryon Park)",
+              "categories": [
+                "Volunteer"
+              ],
+              "squared_distance_to_center": 1.4742982112872272
+            }
+          ],
+          "empty": false,
+          "very_small": false
+        },
+        {
+          "cluster_id": 1,
+          "training_count": 85,
+          "test_count": 38,
+          "total_count": 123,
+          "top_training_categories": [
+            {
+              "category": "Best for Kids",
+              "training_members": 30,
+              "training_membership_percentage": 35.294117647058826
+            },
+            {
+              "category": "Arts & Crafts",
+              "training_members": 29,
+              "training_membership_percentage": 34.11764705882353
+            },
+            {
+              "category": "Gardening",
+              "training_members": 21,
+              "training_membership_percentage": 24.705882352941178
+            },
+            {
+              "category": "Games",
+              "training_members": 18,
+              "training_membership_percentage": 21.176470588235293
+            },
+            {
+              "category": "Nature",
+              "training_members": 16,
+              "training_membership_percentage": 18.823529411764707
+            }
+          ],
+          "geographic_center": {
+            "latitude": 40.69088803788235,
+            "longitude": -73.92258515917412,
+            "easting_km": 1.1891539372503035,
+            "northing_km": -5.027256302984249,
+            "source": "Last two coordinates of the saved center, divided by the saved multiplier, then inverted with the saved equirectangular projection."
+          },
+          "nearest_training_activities": [
+            {
+              "activity_id": "act_ae3c0f6e529a",
+              "title": "Reflections on Growing Season",
+              "location": "Isabahlia Community Garden",
+              "categories": [
+                "Gardening"
+              ],
+              "squared_distance_to_center": 1.1782598729332072
+            },
+            {
+              "activity_id": "act_777a34d93fb1",
+              "title": "Farm Stand",
+              "location": "Powell Street Garden",
+              "categories": [
+                "Gardening"
+              ],
+              "squared_distance_to_center": 1.248441098262807
+            },
+            {
+              "activity_id": "act_35a4bff937df",
+              "title": "Winter Lanterns 2026",
+              "location": "Oak Ridge (in Forest Park)",
+              "categories": [
+                "Arts & Crafts"
+              ],
+              "squared_distance_to_center": 1.4470554592139993
+            }
+          ],
+          "empty": false,
+          "very_small": false
+        },
+        {
+          "cluster_id": 2,
+          "training_count": 72,
+          "test_count": 30,
+          "total_count": 102,
+          "top_training_categories": [
+            {
+              "category": "Exercise Classes",
+              "training_members": 70,
+              "training_membership_percentage": 97.22222222222223
+            },
+            {
+              "category": "Fitness",
+              "training_members": 69,
+              "training_membership_percentage": 95.83333333333333
+            },
+            {
+              "category": "Shape Up NYC",
+              "training_members": 63,
+              "training_membership_percentage": 87.5
+            },
+            {
+              "category": "Recreation Center Programming",
+              "training_members": 23,
+              "training_membership_percentage": 31.944444444444443
+            },
+            {
+              "category": "Dance",
+              "training_members": 14,
+              "training_membership_percentage": 19.444444444444443
+            }
+          ],
+          "geographic_center": {
+            "latitude": 40.71060623043889,
+            "longitude": -73.92778309137778,
+            "easting_km": 0.7512022104700627,
+            "northing_km": -2.834693328096915,
+            "source": "Last two coordinates of the saved center, divided by the saved multiplier, then inverted with the saved equirectangular projection."
+          },
+          "nearest_training_activities": [
+            {
+              "activity_id": "act_677ceab97f27",
+              "title": "Strong For Life Circuit Training",
+              "location": "BPL- Macon Library",
+              "categories": [
+                "Fitness",
+                "Shape Up NYC",
+                "Exercise Classes"
+              ],
+              "squared_distance_to_center": 0.3957997179300352
+            },
+            {
+              "activity_id": "act_3be521c871f1",
+              "title": "Cardio Sculpt",
+              "location": "Queens Public Library - Sunnyside",
+              "categories": [
+                "Fitness",
+                "Shape Up NYC",
+                "Exercise Classes"
+              ],
+              "squared_distance_to_center": 0.4271230947759014
+            },
+            {
+              "activity_id": "act_912a62de3116",
+              "title": "Bodyweight Circuit Training",
+              "location": "Pier 35 (in East River Waterfront Esplanade)",
+              "categories": [
+                "Fitness",
+                "Shape Up NYC",
+                "Exercise Classes"
+              ],
+              "squared_distance_to_center": 0.6689478108325044
+            }
+          ],
+          "empty": false,
+          "very_small": false
+        },
+        {
+          "cluster_id": 3,
+          "training_count": 36,
+          "test_count": 18,
+          "total_count": 54,
+          "top_training_categories": [
+            {
+              "category": "Arts & Crafts",
+              "training_members": 11,
+              "training_membership_percentage": 30.555555555555557
+            },
+            {
+              "category": "Best for Kids",
+              "training_members": 10,
+              "training_membership_percentage": 27.77777777777778
+            },
+            {
+              "category": "Games",
+              "training_members": 10,
+              "training_membership_percentage": 27.77777777777778
+            },
+            {
+              "category": "Festivals",
+              "training_members": 6,
+              "training_membership_percentage": 16.666666666666668
+            },
+            {
+              "category": "Fall Festivals",
+              "training_members": 5,
+              "training_membership_percentage": 13.88888888888889
+            }
+          ],
+          "geographic_center": {
+            "latitude": 40.586226002380556,
+            "longitude": -74.12580435451945,
+            "easting_km": -15.933077371134631,
+            "northing_km": -16.66514366307679,
+            "source": "Last two coordinates of the saved center, divided by the saved multiplier, then inverted with the saved equirectangular projection."
+          },
+          "nearest_training_activities": [
+            {
+              "activity_id": "act_29bcde75082d",
+              "title": "GCC/PPOW: Forest Restoration Workshop on the Todt Hill Blue Trail",
+              "location": "1 Helena Road, SI, NY (in High Rock Park)",
+              "categories": [
+                "Volunteer"
+              ],
+              "squared_distance_to_center": 1.2705702610030538
+            },
+            {
+              "activity_id": "act_6b6d838a4ee6",
+              "title": "Greenbelt Adult Hike - Paulo’s Peak",
+              "location": "Greenbelt Nature Center (in Blood Root Valley)",
+              "categories": [
+                "Hiking"
+              ],
+              "squared_distance_to_center": 1.4568038542406103
+            },
+            {
+              "activity_id": "act_45d98e025ec9",
+              "title": "Wagner College: Children's Learn to Swim (Level 2)",
+              "location": "Wagner College Pool - Spiro Sports Center",
+              "categories": [
+                "Swimming/Aquatics"
+              ],
+              "squared_distance_to_center": 1.6613769236127358
+            }
+          ],
+          "empty": false,
+          "very_small": false
+        }
+      ]
+    }
+  ]
+}

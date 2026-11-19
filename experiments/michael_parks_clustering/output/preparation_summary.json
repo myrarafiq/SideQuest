@@ -1,0 +1,72 @@
+{
+  "source_path": "C:\\Users\\Jin Michael Qian\\SideQuest\\data\\nyc_parks\\latest\\events.json",
+  "source_sha256": "8ba9f517595eabf287398d3f2e2103401af829fc47d141ebeeed1d039a3854a5",
+  "source_session_count": 882,
+  "activity_count": 433,
+  "mapped_session_count": 882,
+  "model_ready_activity_count": 419,
+  "excluded_activity_count": 14,
+  "exclusion_reason_activity_counts": {
+    "location_text_is_virtual_or_online": 9,
+    "model_ready": 419,
+    "no_category_labels": 2,
+    "no_single_measured_point": 3
+  },
+  "exact_title_location_pairs": 433,
+  "normalized_title_location_pairs": 433,
+  "normalized_key_changed_any_grouping": false,
+  "titles_kept_separate_across_locations": 18,
+  "ambiguous_case_count": 1,
+  "field_profile": {
+    "session_count": 882,
+    "title": {
+      "missing": 0,
+      "unique": 385,
+      "non_ascii_titles": 46,
+      "format": "non-null string"
+    },
+    "categories": {
+      "missing_or_empty": 7,
+      "format": "JSON array of strings, split from categories_raw on '|'",
+      "labels_per_session": {
+        "0": 7,
+        "1": 77,
+        "2": 83,
+        "3": 266,
+        "4": 227,
+        "5": 150,
+        "6": 49,
+        "7": 15,
+        "8": 5,
+        "9": 2,
+        "10": 1
+      },
+      "unique_labels": 67
+    },
+    "location": {
+      "missing": 0,
+      "unique": 312,
+      "format": "free-text site description, often 'room (in Park Name)'"
+    },
+    "coordinates": {
+      "missing_string": 0,
+      "single_point": 876,
+      "multiple_points": 6,
+      "unparsed": 0,
+      "latitude_missing": 6,
+      "longitude_missing": 6,
+      "format": "one 'latitude, longitude' pair, or two pairs separated by ';'"
+    },
+    "time": {
+      "starttime_missing": 17,
+      "endtime_missing": 0,
+      "format": "ISO-8601 local timestamp with a numeric offset, timezone field America/New_York",
+      "overnight_sessions": 0
+    }
+  },
+  "feature_column_count_excluding_id": 69,
+  "category_feature_count": 65,
+  "location_weight": 0.1293623285197449,
+  "origin_latitude": 40.73609924,
+  "origin_longitude": -73.93669891
+}
