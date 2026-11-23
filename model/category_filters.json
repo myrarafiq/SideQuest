@@ -1,0 +1,1450 @@
+{
+  "room_settings": [
+    {
+      "id": "boroughs",
+      "label": "Borough(s)",
+      "kind": "multi",
+      "hard": true,
+      "options": [
+        "Manhattan",
+        "Brooklyn",
+        "Queens",
+        "Bronx",
+        "Staten Island"
+      ]
+    },
+    {
+      "id": "group_size",
+      "label": "How many people",
+      "kind": "number",
+      "min": 2,
+      "max": 5
+    },
+    {
+      "id": "when",
+      "label": "When",
+      "kind": "datetime",
+      "hard": true,
+      "note": "places known to be closed then are never shown; unknown hours are labelled"
+    }
+  ],
+  "categories": {
+    "Restaurants": {
+      "places": 20309,
+      "excluded_noise": 200,
+      "type_groups": {
+        "Restaurants": 20308,
+        "Other": 1
+      },
+      "filters": [
+        {
+          "id": "max_price",
+          "label": "Max spend per person",
+          "kind": "price",
+          "hard": true,
+          "v1": true,
+          "options": [
+            {
+              "value": 0,
+              "label": "Free"
+            },
+            {
+              "value": 1,
+              "label": "Up to ~$20"
+            },
+            {
+              "value": 2,
+              "label": "Up to ~$30"
+            },
+            {
+              "value": 3,
+              "label": "Up to ~$90"
+            },
+            {
+              "value": 4,
+              "label": "No limit"
+            }
+          ]
+        },
+        {
+          "id": "kids",
+          "label": "Kid-friendly",
+          "kind": "toggle",
+          "hard": false,
+          "v1": true
+        },
+        {
+          "id": "outdoors",
+          "label": "Outdoors",
+          "kind": "toggle",
+          "hard": false,
+          "v1": true
+        },
+        {
+          "id": "nightlife",
+          "label": "Late night & drinks",
+          "kind": "toggle",
+          "hard": false,
+          "v1": true
+        },
+        {
+          "id": "needs_wheelchair",
+          "label": "Wheelchair-accessible entrance",
+          "kind": "toggle",
+          "hard": true,
+          "v1": true
+        },
+        {
+          "id": "min_rating",
+          "label": "Minimum rating",
+          "kind": "min_rating",
+          "hard": false,
+          "v1": false,
+          "options": [
+            4.0,
+            4.3,
+            4.5,
+            4.7
+          ]
+        },
+        {
+          "id": "cuisine",
+          "label": "Cuisine",
+          "kind": "multi",
+          "hard": false,
+          "v1": false,
+          "options": [
+            "Chinese",
+            "Pizza & Italian",
+            "Mexican & Latin",
+            "American & burgers",
+            "Japanese & sushi",
+            "Korean",
+            "Southeast Asian",
+            "Indian & South Asian",
+            "Middle Eastern & Mediterranean",
+            "Caribbean & African",
+            "European",
+            "Seafood",
+            "Vegan & healthy",
+            "Breakfast & brunch",
+            "Kosher",
+            "Steak & fine dining",
+            "Asian fusion",
+            "Sandwiches & delis",
+            "Fast food"
+          ]
+        },
+        {
+          "id": "outdoor_seating",
+          "label": "Outdoor seating",
+          "kind": "toggle",
+          "hard": false,
+          "v1": false,
+          "coverage": 0.656
+        },
+        {
+          "id": "live_music",
+          "label": "Live music",
+          "kind": "toggle",
+          "hard": false,
+          "v1": false,
+          "coverage": 0.797
+        },
+        {
+          "id": "kids_menu",
+          "label": "Kids' menu",
+          "kind": "toggle",
+          "hard": false,
+          "v1": false,
+          "coverage": 0.589
+        },
+        {
+          "id": "reservable",
+          "label": "Takes reservations",
+          "kind": "toggle",
+          "hard": false,
+          "v1": false,
+          "coverage": 0.647
+        },
+        {
+          "id": "vegetarian",
+          "label": "Vegetarian options",
+          "kind": "toggle",
+          "hard": false,
+          "v1": false,
+          "coverage": 0.517
+        },
+        {
+          "id": "brunch",
+          "label": "Brunch",
+          "kind": "toggle",
+          "hard": false,
+          "v1": false,
+          "coverage": 0.401
+        },
+        {
+          "id": "sports_tv",
+          "label": "Sports on TV",
+          "kind": "toggle",
+          "hard": false,
+          "v1": false,
+          "coverage": 0.62
+        },
+        {
+          "id": "grade_a",
+          "label": "Health grade A",
+          "kind": "toggle",
+          "hard": false,
+          "v1": false,
+          "coverage": 0.587
+        },
+        {
+          "id": "no_chains",
+          "label": "Skip chains",
+          "kind": "toggle",
+          "hard": false,
+          "v1": false,
+          "coverage": 1.0
+        }
+      ],
+      "card_fields": [
+        "cuisine",
+        "price_range",
+        "rating",
+        "neighborhood",
+        "open_until",
+        "inspection_grade",
+        "summary",
+        "tags"
+      ],
+      "price_is_estimated": false
+    },
+    "Cafes & Desserts": {
+      "places": 5726,
+      "excluded_noise": 59,
+      "type_groups": {
+        "Coffee & tea": 2659,
+        "Bakeries & pastries": 1954,
+        "Ice cream & desserts": 1112,
+        "Other": 1
+      },
+      "filters": [
+        {
+          "id": "max_price",
+          "label": "Max spend per person",
+          "kind": "price",
+          "hard": true,
+          "v1": true,
+          "options": [
+            {
+              "value": 0,
+              "label": "Free"
+            },
+            {
+              "value": 1,
+              "label": "Up to ~$20"
+            },
+            {
+              "value": 2,
+              "label": "Up to ~$30"
+            },
+            {
+              "value": 3,
+              "label": "Up to ~$90"
+            },
+            {
+              "value": 4,
+              "label": "No limit"
+            }
+          ]
+        },
+        {
+          "id": "kids",
+          "label": "Kid-friendly",
+          "kind": "toggle",
+          "hard": false,
+          "v1": true
+        },
+        {
+          "id": "outdoors",
+          "label": "Outdoors",
+          "kind": "toggle",
+          "hard": false,
+          "v1": true
+        },
+        {
+          "id": "nightlife",
+          "label": "Late night & drinks",
+          "kind": "toggle",
+          "hard": false,
+          "v1": true
+        },
+        {
+          "id": "needs_wheelchair",
+          "label": "Wheelchair-accessible entrance",
+          "kind": "toggle",
+          "hard": true,
+          "v1": true
+        },
+        {
+          "id": "min_rating",
+          "label": "Minimum rating",
+          "kind": "min_rating",
+          "hard": false,
+          "v1": false,
+          "options": [
+            4.0,
+            4.3,
+            4.5,
+            4.7
+          ]
+        },
+        {
+          "id": "type",
+          "label": "Type",
+          "kind": "multi",
+          "hard": false,
+          "v1": false,
+          "options": [
+            "Coffee & tea",
+            "Bakeries & pastries",
+            "Ice cream & desserts"
+          ]
+        },
+        {
+          "id": "outdoor_seating",
+          "label": "Outdoor seating",
+          "kind": "toggle",
+          "hard": false,
+          "v1": false,
+          "coverage": 0.32
+        }
+      ],
+      "card_fields": [
+        "type",
+        "price_range",
+        "rating",
+        "neighborhood",
+        "open_until",
+        "summary",
+        "tags"
+      ],
+      "price_is_estimated": false
+    },
+    "Bars & Nightlife": {
+      "places": 2766,
+      "excluded_noise": 29,
+      "type_groups": {
+        "Bars": 1574,
+        "Cocktail & wine bars": 631,
+        "Pubs & gastropubs": 151,
+        "Sports bars": 138,
+        "Clubs & hookah": 193,
+        "Karaoke": 21,
+        "Breweries & beer gardens": 38,
+        "Other": 20
+      },
+      "filters": [
+        {
+          "id": "max_price",
+          "label": "Max spend per person",
+          "kind": "price",
+          "hard": true,
+          "v1": true,
+          "options": [
+            {
+              "value": 0,
+              "label": "Free"
+            },
+            {
+              "value": 1,
+              "label": "Up to ~$20"
+            },
+            {
+              "value": 2,
+              "label": "Up to ~$30"
+            },
+            {
+              "value": 3,
+              "label": "Up to ~$90"
+            },
+            {
+              "value": 4,
+              "label": "No limit"
+            }
+          ]
+        },
+        {
+          "id": "kids",
+          "label": "Kid-friendly",
+          "kind": "toggle",
+          "hard": false,
+          "v1": true
+        },
+        {
+          "id": "outdoors",
+          "label": "Outdoors",
+          "kind": "toggle",
+          "hard": false,
+          "v1": true
+        },
+        {
+          "id": "nightlife",
+          "label": "Late night & drinks",
+          "kind": "toggle",
+          "hard": false,
+          "v1": true
+        },
+        {
+          "id": "needs_wheelchair",
+          "label": "Wheelchair-accessible entrance",
+          "kind": "toggle",
+          "hard": true,
+          "v1": true
+        },
+        {
+          "id": "min_rating",
+          "label": "Minimum rating",
+          "kind": "min_rating",
+          "hard": false,
+          "v1": false,
+          "options": [
+            4.0,
+            4.3,
+            4.5,
+            4.7
+          ]
+        },
+        {
+          "id": "type",
+          "label": "Type",
+          "kind": "multi",
+          "hard": false,
+          "v1": false,
+          "options": [
+            "Bars",
+            "Cocktail & wine bars",
+            "Pubs & gastropubs",
+            "Sports bars",
+            "Clubs & hookah",
+            "Karaoke",
+            "Breweries & beer gardens"
+          ]
+        },
+        {
+          "id": "live_music",
+          "label": "Live music",
+          "kind": "toggle",
+          "hard": false,
+          "v1": false,
+          "coverage": 0.61
+        },
+        {
+          "id": "sports_tv",
+          "label": "Sports on TV",
+          "kind": "toggle",
+          "hard": false,
+          "v1": false,
+          "coverage": 0.569
+        },
+        {
+          "id": "outdoor_seating",
+          "label": "Outdoor seating",
+          "kind": "toggle",
+          "hard": false,
+          "v1": false,
+          "coverage": 0.653
+        },
+        {
+          "id": "dogs",
+          "label": "Dog-friendly",
+          "kind": "toggle",
+          "hard": false,
+          "v1": false,
+          "coverage": 0.382
+        },
+        {
+          "id": "reservable",
+          "label": "Takes reservations",
+          "kind": "toggle",
+          "hard": false,
+          "v1": false,
+          "coverage": 0.694
+        }
+      ],
+      "card_fields": [
+        "type",
+        "price_range",
+        "rating",
+        "neighborhood",
+        "open_until",
+        "summary",
+        "tags"
+      ],
+      "price_is_estimated": false
+    },
+    "Parks & Outdoors": {
+      "places": 4184,
+      "excluded_noise": 10,
+      "type_groups": {
+        "Parks": 1521,
+        "Playgrounds": 1402,
+        "Gardens": 808,
+        "Dog parks": 105,
+        "Nature & hiking": 135,
+        "Beaches & waterfront": 29,
+        "Plazas": 155,
+        "Skateparks": 26,
+        "Other": 3
+      },
+      "filters": [
+        {
+          "id": "kids",
+          "label": "Kid-friendly",
+          "kind": "toggle",
+          "hard": false,
+          "v1": true
+        },
+        {
+          "id": "outdoors",
+          "label": "Outdoors",
+          "kind": "toggle",
+          "hard": false,
+          "v1": true
+        },
+        {
+          "id": "nightlife",
+          "label": "Late night & drinks",
+          "kind": "toggle",
+          "hard": false,
+          "v1": true
+        },
+        {
+          "id": "needs_wheelchair",
+          "label": "Wheelchair-accessible entrance",
+          "kind": "toggle",
+          "hard": true,
+          "v1": true
+        },
+        {
+          "id": "min_rating",
+          "label": "Minimum rating",
+          "kind": "min_rating",
+          "hard": false,
+          "v1": false,
+          "options": [
+            4.0,
+            4.3,
+            4.5,
+            4.7
+          ]
+        },
+        {
+          "id": "type",
+          "label": "Type",
+          "kind": "multi",
+          "hard": false,
+          "v1": false,
+          "options": [
+            "Parks",
+            "Playgrounds",
+            "Gardens",
+            "Dog parks",
+            "Nature & hiking",
+            "Beaches & waterfront",
+            "Plazas",
+            "Skateparks"
+          ]
+        },
+        {
+          "id": "dogs",
+          "label": "Dog-friendly",
+          "kind": "toggle",
+          "hard": false,
+          "v1": false,
+          "coverage": 0.198
+        },
+        {
+          "id": "big_parks",
+          "label": "Big parks (10+ acres)",
+          "kind": "toggle",
+          "hard": false,
+          "v1": false,
+          "coverage": 0.413
+        }
+      ],
+      "card_fields": [
+        "type",
+        "free",
+        "size",
+        "rating",
+        "neighborhood",
+        "nearest_subway",
+        "official_label"
+      ],
+      "price_is_estimated": false
+    },
+    "Museums & Galleries": {
+      "places": 1447,
+      "excluded_noise": 82,
+      "type_groups": {
+        "Museums": 180,
+        "Art museums": 56,
+        "Galleries & studios": 1198,
+        "Other": 13
+      },
+      "filters": [
+        {
+          "id": "max_price",
+          "label": "Max spend per person",
+          "kind": "price",
+          "hard": true,
+          "v1": true,
+          "options": [
+            {
+              "value": 0,
+              "label": "Free"
+            },
+            {
+              "value": 1,
+              "label": "Up to ~$20"
+            },
+            {
+              "value": 2,
+              "label": "Up to ~$30"
+            },
+            {
+              "value": 3,
+              "label": "Up to ~$90"
+            },
+            {
+              "value": 4,
+              "label": "No limit"
+            }
+          ]
+        },
+        {
+          "id": "kids",
+          "label": "Kid-friendly",
+          "kind": "toggle",
+          "hard": false,
+          "v1": true
+        },
+        {
+          "id": "outdoors",
+          "label": "Outdoors",
+          "kind": "toggle",
+          "hard": false,
+          "v1": true
+        },
+        {
+          "id": "nightlife",
+          "label": "Late night & drinks",
+          "kind": "toggle",
+          "hard": false,
+          "v1": true
+        },
+        {
+          "id": "needs_wheelchair",
+          "label": "Wheelchair-accessible entrance",
+          "kind": "toggle",
+          "hard": true,
+          "v1": true
+        },
+        {
+          "id": "min_rating",
+          "label": "Minimum rating",
+          "kind": "min_rating",
+          "hard": false,
+          "v1": false,
+          "options": [
+            4.0,
+            4.3,
+            4.5,
+            4.7
+          ]
+        },
+        {
+          "id": "type",
+          "label": "Type",
+          "kind": "multi",
+          "hard": false,
+          "v1": false,
+          "options": [
+            "Museums",
+            "Art museums",
+            "Galleries & studios"
+          ]
+        },
+        {
+          "id": "famous",
+          "label": "Famous landmarks",
+          "kind": "toggle",
+          "hard": false,
+          "v1": false,
+          "coverage": 0.088
+        }
+      ],
+      "card_fields": [
+        "type",
+        "price_note",
+        "rating",
+        "famous",
+        "neighborhood",
+        "open_until",
+        "summary"
+      ],
+      "price_is_estimated": true
+    },
+    "Shows & Live Events": {
+      "places": 915,
+      "excluded_noise": 85,
+      "type_groups": {
+        "Theater": 483,
+        "Live music & concerts": 127,
+        "Comedy": 73,
+        "Movies": 84,
+        "Stadiums & arenas": 42,
+        "Event venues": 89,
+        "Other": 17
+      },
+      "filters": [
+        {
+          "id": "max_price",
+          "label": "Max spend per person",
+          "kind": "price",
+          "hard": true,
+          "v1": true,
+          "options": [
+            {
+              "value": 0,
+              "label": "Free"
+            },
+            {
+              "value": 1,
+              "label": "Up to ~$20"
+            },
+            {
+              "value": 2,
+              "label": "Up to ~$30"
+            },
+            {
+              "value": 3,
+              "label": "Up to ~$90"
+            },
+            {
+              "value": 4,
+              "label": "No limit"
+            }
+          ]
+        },
+        {
+          "id": "kids",
+          "label": "Kid-friendly",
+          "kind": "toggle",
+          "hard": false,
+          "v1": true
+        },
+        {
+          "id": "outdoors",
+          "label": "Outdoors",
+          "kind": "toggle",
+          "hard": false,
+          "v1": true
+        },
+        {
+          "id": "nightlife",
+          "label": "Late night & drinks",
+          "kind": "toggle",
+          "hard": false,
+          "v1": true
+        },
+        {
+          "id": "needs_wheelchair",
+          "label": "Wheelchair-accessible entrance",
+          "kind": "toggle",
+          "hard": true,
+          "v1": true
+        },
+        {
+          "id": "min_rating",
+          "label": "Minimum rating",
+          "kind": "min_rating",
+          "hard": false,
+          "v1": false,
+          "options": [
+            4.0,
+            4.3,
+            4.5,
+            4.7
+          ]
+        },
+        {
+          "id": "type",
+          "label": "Type",
+          "kind": "multi",
+          "hard": false,
+          "v1": false,
+          "options": [
+            "Theater",
+            "Live music & concerts",
+            "Comedy",
+            "Movies",
+            "Stadiums & arenas",
+            "Event venues"
+          ]
+        }
+      ],
+      "card_fields": [
+        "type",
+        "price_note",
+        "rating",
+        "neighborhood",
+        "venue_note",
+        "summary"
+      ],
+      "price_is_estimated": true
+    },
+    "Attractions & Tours": {
+      "places": 2011,
+      "excluded_noise": 35,
+      "type_groups": {
+        "Sights": 694,
+        "Landmarks & monuments": 1237,
+        "Zoos & aquariums": 22,
+        "Observation decks": 12,
+        "Amusement parks": 13,
+        "Tours": 16,
+        "Other": 17
+      },
+      "filters": [
+        {
+          "id": "max_price",
+          "label": "Max spend per person",
+          "kind": "price",
+          "hard": true,
+          "v1": true,
+          "options": [
+            {
+              "value": 0,
+              "label": "Free"
+            },
+            {
+              "value": 1,
+              "label": "Up to ~$20"
+            },
+            {
+              "value": 2,
+              "label": "Up to ~$30"
+            },
+            {
+              "value": 3,
+              "label": "Up to ~$90"
+            },
+            {
+              "value": 4,
+              "label": "No limit"
+            }
+          ]
+        },
+        {
+          "id": "kids",
+          "label": "Kid-friendly",
+          "kind": "toggle",
+          "hard": false,
+          "v1": true
+        },
+        {
+          "id": "outdoors",
+          "label": "Outdoors",
+          "kind": "toggle",
+          "hard": false,
+          "v1": true
+        },
+        {
+          "id": "nightlife",
+          "label": "Late night & drinks",
+          "kind": "toggle",
+          "hard": false,
+          "v1": true
+        },
+        {
+          "id": "needs_wheelchair",
+          "label": "Wheelchair-accessible entrance",
+          "kind": "toggle",
+          "hard": true,
+          "v1": true
+        },
+        {
+          "id": "min_rating",
+          "label": "Minimum rating",
+          "kind": "min_rating",
+          "hard": false,
+          "v1": false,
+          "options": [
+            4.0,
+            4.3,
+            4.5,
+            4.7
+          ]
+        },
+        {
+          "id": "type",
+          "label": "Type",
+          "kind": "multi",
+          "hard": false,
+          "v1": false,
+          "options": [
+            "Sights",
+            "Landmarks & monuments",
+            "Zoos & aquariums",
+            "Observation decks",
+            "Amusement parks",
+            "Tours"
+          ]
+        },
+        {
+          "id": "famous",
+          "label": "Famous landmarks",
+          "kind": "toggle",
+          "hard": false,
+          "v1": false,
+          "coverage": 0.108
+        }
+      ],
+      "card_fields": [
+        "type",
+        "price_note",
+        "rating",
+        "famous",
+        "neighborhood",
+        "open_until",
+        "summary"
+      ],
+      "price_is_estimated": true
+    },
+    "Games & Indoor Fun": {
+      "places": 232,
+      "excluded_noise": 14,
+      "type_groups": {
+        "Arcades & amusement": 105,
+        "Bowling": 19,
+        "Indoor play (kids)": 68,
+        "Ice skating": 20,
+        "Mini golf & indoor golf": 8,
+        "Other": 12
+      },
+      "filters": [
+        {
+          "id": "max_price",
+          "label": "Max spend per person",
+          "kind": "price",
+          "hard": true,
+          "v1": true,
+          "options": [
+            {
+              "value": 0,
+              "label": "Free"
+            },
+            {
+              "value": 1,
+              "label": "Up to ~$20"
+            },
+            {
+              "value": 2,
+              "label": "Up to ~$30"
+            },
+            {
+              "value": 3,
+              "label": "Up to ~$90"
+            },
+            {
+              "value": 4,
+              "label": "No limit"
+            }
+          ]
+        },
+        {
+          "id": "kids",
+          "label": "Kid-friendly",
+          "kind": "toggle",
+          "hard": false,
+          "v1": true
+        },
+        {
+          "id": "outdoors",
+          "label": "Outdoors",
+          "kind": "toggle",
+          "hard": false,
+          "v1": true
+        },
+        {
+          "id": "nightlife",
+          "label": "Late night & drinks",
+          "kind": "toggle",
+          "hard": false,
+          "v1": true
+        },
+        {
+          "id": "needs_wheelchair",
+          "label": "Wheelchair-accessible entrance",
+          "kind": "toggle",
+          "hard": true,
+          "v1": true
+        },
+        {
+          "id": "min_rating",
+          "label": "Minimum rating",
+          "kind": "min_rating",
+          "hard": false,
+          "v1": false,
+          "options": [
+            4.0,
+            4.3,
+            4.5,
+            4.7
+          ]
+        },
+        {
+          "id": "type",
+          "label": "Type",
+          "kind": "multi",
+          "hard": false,
+          "v1": false,
+          "options": [
+            "Arcades & amusement",
+            "Bowling",
+            "Indoor play (kids)",
+            "Ice skating",
+            "Mini golf & indoor golf"
+          ]
+        }
+      ],
+      "card_fields": [
+        "type",
+        "price_note",
+        "rating",
+        "neighborhood",
+        "open_until",
+        "summary"
+      ],
+      "price_is_estimated": true
+    },
+    "Sports & Fitness": {
+      "places": 1565,
+      "excluded_noise": 250,
+      "type_groups": {
+        "Gyms": 826,
+        "Yoga & pilates": 325,
+        "Pools": 42,
+        "Fields, courts & rec centers": 253,
+        "Classes & coaching": 107,
+        "Other": 12
+      },
+      "filters": [
+        {
+          "id": "max_price",
+          "label": "Max spend per person",
+          "kind": "price",
+          "hard": true,
+          "v1": true,
+          "options": [
+            {
+              "value": 0,
+              "label": "Free"
+            },
+            {
+              "value": 1,
+              "label": "Up to ~$20"
+            },
+            {
+              "value": 2,
+              "label": "Up to ~$30"
+            },
+            {
+              "value": 3,
+              "label": "Up to ~$90"
+            },
+            {
+              "value": 4,
+              "label": "No limit"
+            }
+          ]
+        },
+        {
+          "id": "kids",
+          "label": "Kid-friendly",
+          "kind": "toggle",
+          "hard": false,
+          "v1": true
+        },
+        {
+          "id": "outdoors",
+          "label": "Outdoors",
+          "kind": "toggle",
+          "hard": false,
+          "v1": true
+        },
+        {
+          "id": "nightlife",
+          "label": "Late night & drinks",
+          "kind": "toggle",
+          "hard": false,
+          "v1": true
+        },
+        {
+          "id": "needs_wheelchair",
+          "label": "Wheelchair-accessible entrance",
+          "kind": "toggle",
+          "hard": true,
+          "v1": true
+        },
+        {
+          "id": "min_rating",
+          "label": "Minimum rating",
+          "kind": "min_rating",
+          "hard": false,
+          "v1": false,
+          "options": [
+            4.0,
+            4.3,
+            4.5,
+            4.7
+          ]
+        },
+        {
+          "id": "type",
+          "label": "Type",
+          "kind": "multi",
+          "hard": false,
+          "v1": false,
+          "options": [
+            "Gyms",
+            "Yoga & pilates",
+            "Pools",
+            "Fields, courts & rec centers",
+            "Classes & coaching"
+          ]
+        }
+      ],
+      "card_fields": [
+        "type",
+        "price_note",
+        "rating",
+        "neighborhood",
+        "open_until"
+      ],
+      "price_is_estimated": true
+    },
+    "Spas & Wellness": {
+      "places": 2922,
+      "excluded_noise": 374,
+      "type_groups": {
+        "Spas & saunas": 1379,
+        "Massage": 891,
+        "Beauty & nails": 646,
+        "Other": 6
+      },
+      "filters": [
+        {
+          "id": "max_price",
+          "label": "Max spend per person",
+          "kind": "price",
+          "hard": true,
+          "v1": true,
+          "options": [
+            {
+              "value": 0,
+              "label": "Free"
+            },
+            {
+              "value": 1,
+              "label": "Up to ~$20"
+            },
+            {
+              "value": 2,
+              "label": "Up to ~$30"
+            },
+            {
+              "value": 3,
+              "label": "Up to ~$90"
+            },
+            {
+              "value": 4,
+              "label": "No limit"
+            }
+          ]
+        },
+        {
+          "id": "kids",
+          "label": "Kid-friendly",
+          "kind": "toggle",
+          "hard": false,
+          "v1": true
+        },
+        {
+          "id": "outdoors",
+          "label": "Outdoors",
+          "kind": "toggle",
+          "hard": false,
+          "v1": true
+        },
+        {
+          "id": "nightlife",
+          "label": "Late night & drinks",
+          "kind": "toggle",
+          "hard": false,
+          "v1": true
+        },
+        {
+          "id": "needs_wheelchair",
+          "label": "Wheelchair-accessible entrance",
+          "kind": "toggle",
+          "hard": true,
+          "v1": true
+        },
+        {
+          "id": "min_rating",
+          "label": "Minimum rating",
+          "kind": "min_rating",
+          "hard": false,
+          "v1": false,
+          "options": [
+            4.0,
+            4.3,
+            4.5,
+            4.7
+          ]
+        },
+        {
+          "id": "type",
+          "label": "Type",
+          "kind": "multi",
+          "hard": false,
+          "v1": false,
+          "options": [
+            "Spas & saunas",
+            "Massage",
+            "Beauty & nails"
+          ]
+        }
+      ],
+      "card_fields": [
+        "type",
+        "price_note",
+        "rating",
+        "neighborhood",
+        "open_until"
+      ],
+      "price_is_estimated": true
+    },
+    "Libraries & Bookstores": {
+      "places": 785,
+      "excluded_noise": 42,
+      "type_groups": {
+        "Libraries": 439,
+        "Bookstores": 337,
+        "Other": 9
+      },
+      "filters": [
+        {
+          "id": "max_price",
+          "label": "Max spend per person",
+          "kind": "price",
+          "hard": true,
+          "v1": true,
+          "options": [
+            {
+              "value": 0,
+              "label": "Free"
+            },
+            {
+              "value": 1,
+              "label": "Up to ~$20"
+            },
+            {
+              "value": 2,
+              "label": "Up to ~$30"
+            },
+            {
+              "value": 3,
+              "label": "Up to ~$90"
+            },
+            {
+              "value": 4,
+              "label": "No limit"
+            }
+          ]
+        },
+        {
+          "id": "kids",
+          "label": "Kid-friendly",
+          "kind": "toggle",
+          "hard": false,
+          "v1": true
+        },
+        {
+          "id": "outdoors",
+          "label": "Outdoors",
+          "kind": "toggle",
+          "hard": false,
+          "v1": true
+        },
+        {
+          "id": "nightlife",
+          "label": "Late night & drinks",
+          "kind": "toggle",
+          "hard": false,
+          "v1": true
+        },
+        {
+          "id": "needs_wheelchair",
+          "label": "Wheelchair-accessible entrance",
+          "kind": "toggle",
+          "hard": true,
+          "v1": true
+        },
+        {
+          "id": "min_rating",
+          "label": "Minimum rating",
+          "kind": "min_rating",
+          "hard": false,
+          "v1": false,
+          "options": [
+            4.0,
+            4.3,
+            4.5,
+            4.7
+          ]
+        },
+        {
+          "id": "type",
+          "label": "Type",
+          "kind": "multi",
+          "hard": false,
+          "v1": false,
+          "options": [
+            "Libraries",
+            "Bookstores"
+          ]
+        }
+      ],
+      "card_fields": [
+        "type",
+        "free_if_library",
+        "rating",
+        "neighborhood",
+        "open_until"
+      ],
+      "price_is_estimated": false
+    },
+    "Shopping": {
+      "places": 1726,
+      "excluded_noise": 427,
+      "type_groups": {
+        "Markets": 65,
+        "Malls & department stores": 531,
+        "Thrift & vintage": 128,
+        "Gifts & toys": 709,
+        "Clothing & jewelry": 148,
+        "Flowers & home": 140,
+        "Other": 5
+      },
+      "filters": [
+        {
+          "id": "max_price",
+          "label": "Max spend per person",
+          "kind": "price",
+          "hard": true,
+          "v1": true,
+          "options": [
+            {
+              "value": 0,
+              "label": "Free"
+            },
+            {
+              "value": 1,
+              "label": "Up to ~$20"
+            },
+            {
+              "value": 2,
+              "label": "Up to ~$30"
+            },
+            {
+              "value": 3,
+              "label": "Up to ~$90"
+            },
+            {
+              "value": 4,
+              "label": "No limit"
+            }
+          ]
+        },
+        {
+          "id": "kids",
+          "label": "Kid-friendly",
+          "kind": "toggle",
+          "hard": false,
+          "v1": true
+        },
+        {
+          "id": "outdoors",
+          "label": "Outdoors",
+          "kind": "toggle",
+          "hard": false,
+          "v1": true
+        },
+        {
+          "id": "nightlife",
+          "label": "Late night & drinks",
+          "kind": "toggle",
+          "hard": false,
+          "v1": true
+        },
+        {
+          "id": "needs_wheelchair",
+          "label": "Wheelchair-accessible entrance",
+          "kind": "toggle",
+          "hard": true,
+          "v1": true
+        },
+        {
+          "id": "min_rating",
+          "label": "Minimum rating",
+          "kind": "min_rating",
+          "hard": false,
+          "v1": false,
+          "options": [
+            4.0,
+            4.3,
+            4.5,
+            4.7
+          ]
+        },
+        {
+          "id": "type",
+          "label": "Type",
+          "kind": "multi",
+          "hard": false,
+          "v1": false,
+          "options": [
+            "Markets",
+            "Malls & department stores",
+            "Thrift & vintage",
+            "Gifts & toys",
+            "Clothing & jewelry",
+            "Flowers & home"
+          ]
+        }
+      ],
+      "card_fields": [
+        "type",
+        "rating",
+        "neighborhood",
+        "open_until"
+      ],
+      "price_is_estimated": true
+    }
+  }
+}

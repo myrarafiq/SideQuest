@@ -1,215 +1,172 @@
-const dbStatus = document.querySelector("#db-status");
+const form = document.querySelector("#plan-form");
+const membersBox = document.querySelector("#members");
 const message = document.querySelector("#message");
-const roomSection = document.querySelector("#room");
-const activitiesList = document.querySelector("#activities");
+const results = document.querySelector("#results");
+const deckList = document.querySelector("#deck");
+const FIELD_LABELS = {
+  cuisine: "Cuisine", type: "Type", price_range: "Price", price_note: "Price", rating: "Rating",
+  neighborhood: "Where", open_until: "Hours", inspection_grade: "Health", free: "Price", free_if_library: "Price",
+  size: "Size", nearest_subway: "Subway", official_label: "", famous: "", venue_note: "",
+};
+let options = null;
 
 function showMessage(text) {
   message.hidden = !text;
   message.textContent = text || "";
 }
 
-function youKey(code) {
-  return "sidequest-you:" + code;
+function checkbox(name, value, label, checked = false) {
+  const wrap = document.createElement("label");
+  wrap.className = "check";
+  const box = document.createElement("input");
+  box.type = "checkbox";
+  box.name = name;
+  box.value = value;
+  box.checked = checked;
+  wrap.append(box, " " + label);
+  return wrap;
 }
 
-function rememberYou(room) {
-  if (!room.you) return;
-  sessionStorage.setItem(youKey(room.code), JSON.stringify(room.you));
-}
-
-function savedYou(code) {
-  const raw = sessionStorage.getItem(youKey(code));
-  if (!raw) return null;
-  try {
-    return JSON.parse(raw);
-  } catch (error) {
-    return null;
-  }
-}
-
-function fillIntake(you) {
-  const form = document.querySelector("#intake-form");
-  form.hidden = !you;
-  if (!you) return;
-  form.dataset.userId = String(you.user_id);
-  form.dataset.roomCode = document.querySelector("#room-code").textContent;
-  form.budget_hard.value = you.budget_hard ?? "";
-  form.budget_ideal.value = you.budget_ideal ?? "";
-  form.starting_area.value = you.starting_area ?? "";
-  form.travel_limit_minutes.value = you.travel_limit_minutes ?? "";
-  form.free_start.value = you.free_start_local ?? "";
-  form.free_end.value = you.free_end_local ?? "";
-}
-
-function showRoom(room) {
-  roomSection.hidden = false;
-  document.querySelector("#room-name").textContent = room.name;
-  document.querySelector("#room-code").textContent = room.code;
-  document.querySelector("#room-status").textContent = room.status;
-  const list = document.querySelector("#members");
-  list.replaceChildren();
-  for (const member of room.members) {
-    const item = document.createElement("li");
-    const role = member.role === "organizer" ? " (organizer)" : "";
-    const ready = member.ready ? "ready" : "not ready";
-    item.textContent = `${member.name}${role} · ${ready}`;
-    list.append(item);
-  }
-  const you = room.you || savedYou(room.code);
-  if (room.you) rememberYou(room);
-  fillIntake(you);
-  const url = new URL(window.location.href);
-  url.searchParams.set("code", room.code);
-  history.replaceState(null, "", url);
-}
-
-async function postJson(path, body) {
-  const response = await fetch(path, {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify(body),
-  });
-  const data = await response.json();
-  if (!response.ok) {
-    throw new Error(data.error || "Request failed.");
-  }
-  return data;
-}
-
-document.querySelector("#create-form").addEventListener("submit", async (event) => {
-  event.preventDefault();
-  const form = event.currentTarget;
-  const button = form.querySelector("button");
-  button.disabled = true;
-  showMessage("");
-  try {
-    const room = await postJson("/api/rooms", {
-      name: form.name.value,
-      room_name: form.room_name.value,
-    });
-    showRoom(room);
-    showMessage("Room created. Share the code.");
-  } catch (error) {
-    showMessage(error.message);
-  } finally {
-    button.disabled = false;
-  }
-});
-
-document.querySelector("#intake-form").addEventListener("submit", async (event) => {
-  event.preventDefault();
-  const form = event.currentTarget;
-  const button = form.querySelector("button");
-  button.disabled = true;
-  showMessage("");
-  try {
-    const room = await postJson("/api/rooms/" + encodeURIComponent(form.dataset.roomCode) + "/intake", {
-      user_id: Number(form.dataset.userId),
-      budget_hard: form.budget_hard.value,
-      budget_ideal: form.budget_ideal.value,
-      starting_area: form.starting_area.value,
-      travel_limit_minutes: form.travel_limit_minutes.value,
-      free_start: form.free_start.value,
-      free_end: form.free_end.value,
-    });
-    showRoom(room);
-    showMessage("Saved. You are ready. The room list does not show your budget or travel limit.");
-  } catch (error) {
-    showMessage(error.message);
-  } finally {
-    button.disabled = false;
-  }
-});
-
-document.querySelector("#join-form").addEventListener("submit", async (event) => {
-  event.preventDefault();
-  const form = event.currentTarget;
-  const button = form.querySelector("button");
-  button.disabled = true;
-  showMessage("");
-  try {
-    const room = await postJson("/api/rooms/join", {
-      name: form.name.value,
-      code: form.code.value,
-    });
-    showRoom(room);
-    showMessage("You joined the room.");
-  } catch (error) {
-    showMessage(error.message);
-  } finally {
-    button.disabled = false;
-  }
-});
-
-async function loadHealth() {
-  try {
-    const response = await fetch("/api/health");
-    const data = await response.json();
-    if (!data.ok) {
-      dbStatus.textContent = "Database is not reachable. " + (data.error || "");
-      return;
+function renderMembers() {
+  const size = Number(document.querySelector("#group-size").value);
+  const existing = membersBox.querySelectorAll(".member").length;
+  for (let i = existing; i < size; i++) {
+    const node = document.querySelector("#member-template").content.cloneNode(true);
+    node.querySelector("legend").textContent = `Person ${i + 1}`;
+    node.querySelector("[name=name]").value = `Person ${i + 1}`;
+    const price = node.querySelector("[name=max_price]");
+    for (const p of options.prices) {
+      const opt = document.createElement("option");
+      opt.value = p.value;
+      opt.textContent = p.label;
+      opt.selected = p.value === 2;
+      price.append(opt);
     }
-    dbStatus.textContent = data.tables_ready
-      ? "Database connected."
-      : "Database connected, but the tables are not created yet. Run python load_data.py once.";
-  } catch (error) {
-    dbStatus.textContent = "Could not reach the server.";
+    for (const c of options.categories) node.querySelector(".categories").append(checkbox("categories", c, c));
+    for (const t of options.toggles) node.querySelector(".toggles").append(checkbox("toggles", t.id, t.label));
+    membersBox.append(node);
   }
+  membersBox.querySelectorAll(".member").forEach((el, i) => { el.hidden = i >= size; });
 }
 
-function formatWhen(value) {
-  if (!value) return "";
-  const date = new Date(value);
-  if (Number.isNaN(date.getTime())) return "";
-  return date.toLocaleString("en-US", { timeZone: "America/New_York" });
+function readForm() {
+  const size = Number(document.querySelector("#group-size").value);
+  const members = [...membersBox.querySelectorAll(".member")].slice(0, size).map((el) => ({
+    name: el.querySelector("[name=name]").value,
+    max_price: Number(el.querySelector("[name=max_price]").value),
+    categories: [...el.querySelectorAll("[name=categories]:checked")].map((b) => b.value),
+    toggles: [...el.querySelectorAll("[name=toggles]:checked")].map((b) => b.value),
+    needs_wheelchair: el.querySelector("[name=needs_wheelchair]").checked,
+  }));
+  return {
+    room: {
+      boroughs: [...document.querySelectorAll("#boroughs input:checked")].map((b) => b.value),
+      group_size: size,
+      when: document.querySelector("#when").value,
+    },
+    members,
+  };
 }
 
-async function loadActivities() {
-  const response = await fetch("/api/activities");
-  const data = await response.json();
-  activitiesList.replaceChildren();
-  if (data.error) {
-    const item = document.createElement("li");
-    item.textContent = data.error;
-    activitiesList.append(item);
+function renderDeck(data) {
+  deckList.replaceChildren();
+  const l = data.room_limits;
+  document.querySelector("#limits").textContent =
+    `${l.boroughs.join(", ")} · ${l.when} · up to ${l.max_price}` + (l.wheelchair_access ? " · wheelchair accessible" : "");
+  if (!data.deck.length) {
+    showMessage(data.message || "Nothing fits. Try another time, more boroughs or a higher budget.");
+    results.hidden = true;
     return;
   }
-  if (!data.activities.length) {
-    const item = document.createElement("li");
-    item.textContent = "No activities loaded yet.";
-    activitiesList.append(item);
-    return;
-  }
-  for (const activity of data.activities) {
-    const item = document.createElement("li");
-    const when = formatWhen(activity.starttime);
-    const bits = [activity.title, activity.location, when, activity.source].filter(Boolean);
-    if (activity.url) {
-      const link = document.createElement("a");
-      link.href = activity.url;
-      link.target = "_blank";
-      link.rel = "noreferrer";
-      link.textContent = bits[0];
-      item.append(link);
-      if (bits.length > 1) {
-        item.append(" — " + bits.slice(1).join(" · "));
-      }
+  for (const card of data.deck) {
+    const li = document.createElement("li");
+    li.className = "card";
+    const title = document.createElement("h3");
+    if (card.maps_uri) {
+      const a = document.createElement("a");
+      a.href = card.maps_uri;
+      a.target = "_blank";
+      a.rel = "noreferrer";
+      a.textContent = card.name;
+      title.append(a);
     } else {
-      item.textContent = bits.join(" · ");
+      title.textContent = card.name;
     }
-    activitiesList.append(item);
+    const cat = document.createElement("p");
+    cat.className = "category";
+    cat.textContent = card.category;
+    const facts = document.createElement("ul");
+    facts.className = "facts";
+    for (const [key, value] of Object.entries(card.fields)) {
+      if (key === "summary" || key === "tags") continue;
+      const item = document.createElement("li");
+      item.textContent = FIELD_LABELS[key] ? `${FIELD_LABELS[key]}: ${value}` : value;
+      facts.append(item);
+    }
+    li.append(title, cat, facts);
+    if (card.fields.tags && card.fields.tags.length) {
+      const tags = document.createElement("p");
+      tags.className = "tags";
+      tags.textContent = card.fields.tags.join(" · ");
+      li.append(tags);
+    }
+    if (card.fields.summary) {
+      const s = document.createElement("p");
+      s.className = "summary";
+      s.textContent = card.fields.summary;
+      li.append(s);
+    }
+    const who = document.createElement("p");
+    who.className = "for";
+    who.textContent = card.for.length ? `Good for: ${card.for.join(", ")}` : "A shared pick for the group";
+    li.append(who);
+    deckList.append(li);
   }
+  const notes = Object.entries(data.unserved_members || {}).map(([who, why]) => `No card for ${who}: ${why}.`);
+  if (data.deck.length < 10) {
+    notes.unshift(`Only ${data.deck.length} place${data.deck.length === 1 ? "" : "s"} fit everyone's limits at that time. ` +
+                  "A different time, another borough or a higher budget would give more options.");
+  }
+  showMessage(notes.join(" "));
+  results.hidden = false;
 }
 
-async function loadRoomFromUrl() {
-  const code = new URLSearchParams(window.location.search).get("code");
-  if (!code) return;
-  document.querySelector("#join-form [name=code]").value = code;
-  const response = await fetch("/api/rooms/" + encodeURIComponent(code));
-  if (!response.ok) return;
-  showRoom(await response.json());
+form.addEventListener("submit", async (event) => {
+  event.preventDefault();
+  const button = form.querySelector("button[type=submit]");
+  button.disabled = true;
+  showMessage("");
+  try {
+    const response = await fetch("/api/recommend", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(readForm()),
+    });
+    const data = await response.json();
+    if (!response.ok) throw new Error(data.error || "Something went wrong.");
+    renderDeck(data);
+    results.scrollIntoView({ behavior: "smooth" });
+  } catch (error) {
+    results.hidden = true;
+    showMessage(error.message);
+  } finally {
+    button.disabled = false;
+  }
+});
+
+async function init() {
+  options = await (await fetch("/api/options")).json();
+  for (const b of options.boroughs) {
+    document.querySelector("#boroughs").append(checkbox("boroughs", b, b, b === "Manhattan"));
+  }
+  const next = new Date();
+  next.setDate(next.getDate() + ((5 - next.getDay() + 7) % 7 || 7));   // next Friday, 7:30 pm
+  next.setHours(19, 30, 0, 0);
+  const pad = (n) => String(n).padStart(2, "0");
+  document.querySelector("#when").value =
+    `${next.getFullYear()}-${pad(next.getMonth() + 1)}-${pad(next.getDate())}T${pad(next.getHours())}:${pad(next.getMinutes())}`;
+  document.querySelector("#group-size").addEventListener("change", renderMembers);
+  renderMembers();
 }
 
-loadHealth();
-loadActivities();
-loadRoomFromUrl();
+init();

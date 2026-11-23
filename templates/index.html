@@ -9,53 +9,59 @@
 <body>
   <main>
     <h1>Side Quest</h1>
-    <p class="lede">Make a room, share the code, and add your own constraints.</p>
-    <p id="db-status" class="status">Checking the database…</p>
+    <p class="lede">Set up the outing, add what each person wants, and get one deck of places that fits the whole group.</p>
 
-    <section>
-      <h2>Create a room</h2>
-      <form id="create-form">
-        <label>Your name <input name="name" required maxlength="80" autocomplete="nickname"></label>
-        <label>Room name <input name="room_name" required maxlength="80" placeholder="Friday hangout"></label>
-        <button type="submit">Create room</button>
-      </form>
-    </section>
+    <form id="plan-form">
+      <section>
+        <h2>The outing</h2>
+        <fieldset>
+          <legend>Borough(s)</legend>
+          <div id="boroughs" class="choices"></div>
+        </fieldset>
+        <div class="row">
+          <label>How many people
+            <select name="group_size" id="group-size">
+              <option value="2">2</option><option value="3" selected>3</option>
+              <option value="4">4</option><option value="5">5</option>
+            </select>
+          </label>
+          <label>When <input type="datetime-local" name="when" id="when" required></label>
+        </div>
+      </section>
 
-    <section>
-      <h2>Join with a code</h2>
-      <form id="join-form">
-        <label>Your name <input name="name" required maxlength="80" autocomplete="nickname"></label>
-        <label>Room code <input name="code" required maxlength="12" autocapitalize="characters"></label>
-        <button type="submit">Join room</button>
-      </form>
-    </section>
+      <section>
+        <h2>Each person</h2>
+        <p class="note">Budgets use Google's price levels ($ to $$$$) and count as a hard limit: the deck never goes above the lowest one.</p>
+        <div id="members"></div>
+      </section>
+
+      <button type="submit">Show our deck</button>
+    </form>
 
     <p id="message" class="message" hidden></p>
 
-    <section id="room" hidden>
-      <h2 id="room-name"></h2>
-      <p>Code: <strong id="room-code"></strong> · <span id="room-status"></span></p>
-      <h3>People</h3>
-      <p class="note">The list shows who is ready. Budgets and travel limits stay on each person's own form.</p>
-      <ul id="members"></ul>
-      <form id="intake-form" hidden>
-        <h3>Your constraints</h3>
-        <label>Hard budget (USD) <input name="budget_hard" type="number" min="0" step="0.01" required></label>
-        <label>Ideal budget (USD, optional) <input name="budget_ideal" type="number" min="0" step="0.01"></label>
-        <label>Starting area <input name="starting_area" required maxlength="80" placeholder="Brooklyn"></label>
-        <label>Travel limit (minutes) <input name="travel_limit_minutes" type="number" min="1" max="1440" step="1" required></label>
-        <label>Free from <input name="free_start" type="datetime-local" required></label>
-        <label>Free until <input name="free_end" type="datetime-local" required></label>
-        <button type="submit">Save and mark ready</button>
-      </form>
-    </section>
-
-    <section>
-      <h2>Collected activities</h2>
-      <p class="note">These rows come from the database. They are not a group recommendation.</p>
-      <ul id="activities"></ul>
+    <section id="results" hidden>
+      <h2>Your deck</h2>
+      <p id="limits" class="note"></p>
+      <ol id="deck" class="deck"></ol>
     </section>
   </main>
+
+  <template id="member-template">
+    <fieldset class="member">
+      <legend></legend>
+      <div class="row">
+        <label>Name <input name="name" maxlength="40" required></label>
+        <label>Max spend per person <select name="max_price"></select></label>
+      </div>
+      <div class="sub">Activities</div>
+      <div class="choices categories"></div>
+      <div class="sub">Extras (optional)</div>
+      <div class="choices toggles"></div>
+      <label class="check"><input type="checkbox" name="needs_wheelchair"> Needs a wheelchair-accessible entrance</label>
+    </fieldset>
+  </template>
+
   <script src="/static/app.js"></script>
 </body>
 </html>

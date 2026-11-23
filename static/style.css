@@ -6,7 +6,7 @@ body {
 }
 
 main {
-  max-width: 36rem;
+  max-width: 44rem;
   margin: 0 auto;
   padding: 1.5rem 1rem 3rem;
 }
@@ -18,9 +18,9 @@ h1, h2, h3 {
 
 h1 { font-size: 1.8rem; }
 h2 { font-size: 1.15rem; margin-top: 1.6rem; }
-h3 { font-size: 1rem; }
+h3 { font-size: 1.05rem; }
 
-.lede, .note, .status {
+.lede, .note {
   margin: 0.2rem 0 0;
   color: #4a4338;
 }
@@ -28,12 +28,26 @@ h3 { font-size: 1rem; }
 form {
   display: grid;
   gap: 0.6rem;
-  margin-top: 0.6rem;
 }
 
-#intake-form {
-  margin-top: 1.2rem;
-  padding-top: 0.2rem;
+fieldset {
+  border: 1px solid #d9cbb9;
+  border-radius: 8px;
+  padding: 0.7rem 0.8rem 0.8rem;
+  margin: 0.6rem 0 0;
+  background: #fffdf9;
+}
+
+legend {
+  font-weight: 600;
+  padding: 0 0.3rem;
+}
+
+.row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(12rem, 1fr));
+  gap: 0.6rem;
+  margin-top: 0.6rem;
 }
 
 label {
@@ -42,7 +56,26 @@ label {
   font-size: 0.9rem;
 }
 
-input {
+label.check {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  margin: 0.15rem 0.9rem 0.15rem 0;
+}
+
+.choices {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.sub {
+  margin-top: 0.7rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #4a4338;
+}
+
+input, select {
   font: inherit;
   padding: 0.45rem 0.55rem;
   border: 1px solid #c9b8a4;
@@ -50,10 +83,13 @@ input {
   background: #fffdf9;
 }
 
+input[type=checkbox] { padding: 0; }
+
 button {
   font: inherit;
   width: fit-content;
-  padding: 0.45rem 0.8rem;
+  margin-top: 0.8rem;
+  padding: 0.55rem 1rem;
   border: 0;
   border-radius: 6px;
   background: #bd866a;
@@ -73,11 +109,44 @@ button:disabled {
   border-radius: 6px;
 }
 
-ul {
-  margin: 0.4rem 0 0;
-  padding-left: 1.1rem;
+.deck {
+  list-style: none;
+  margin: 0.8rem 0 0;
+  padding: 0;
+  display: grid;
+  gap: 0.8rem;
 }
 
-li { margin: 0.25rem 0; }
+.card {
+  background: #fffdf9;
+  border: 1px solid #d9cbb9;
+  border-radius: 10px;
+  padding: 0.8rem 0.9rem;
+}
+
+.card .category {
+  margin: 0;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: #8a6a55;
+}
+
+.facts {
+  margin: 0.4rem 0 0;
+  padding-left: 1.1rem;
+  font-size: 0.92rem;
+}
+
+.facts li { margin: 0.1rem 0; }
+
+.tags, .summary, .for {
+  margin: 0.45rem 0 0;
+  font-size: 0.9rem;
+}
+
+.tags { color: #6d3f2c; }
+.summary { color: #4a4338; }
+.for { font-weight: 600; }
 
 a { color: #6d3f2c; }
