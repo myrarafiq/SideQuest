@@ -1,0 +1,193 @@
+{
+  "data": "data/places_v1.parquet (Google-verified operational NYC places)",
+  "rows": 45440,
+  "train_rows": 36352,
+  "test_rows": 9088,
+  "split": {
+    "method": "train_test_split on sorted master_id",
+    "test_size": 0.2,
+    "random_state": 42
+  },
+  "categories": [
+    "Restaurants",
+    "Cafes & Desserts",
+    "Bars & Nightlife",
+    "Parks & Outdoors",
+    "Museums & Galleries",
+    "Shows & Live Events",
+    "Attractions & Tours",
+    "Games & Indoor Fun",
+    "Sports & Fitness",
+    "Spas & Wellness",
+    "Libraries & Bookstores",
+    "Shopping"
+  ],
+  "vibes": [
+    "kids",
+    "groups",
+    "outdoor",
+    "live_music",
+    "dogs",
+    "alcohol",
+    "reservable",
+    "open_late"
+  ],
+  "feature_names": [
+    "cat:Restaurants",
+    "cat:Cafes & Desserts",
+    "cat:Bars & Nightlife",
+    "cat:Parks & Outdoors",
+    "cat:Museums & Galleries",
+    "cat:Shows & Live Events",
+    "cat:Attractions & Tours",
+    "cat:Games & Indoor Fun",
+    "cat:Sports & Fitness",
+    "cat:Spas & Wellness",
+    "cat:Libraries & Bookstores",
+    "cat:Shopping",
+    "price",
+    "vibe:kids",
+    "vibe:groups",
+    "vibe:outdoor",
+    "vibe:live_music",
+    "vibe:dogs",
+    "vibe:alcohol",
+    "vibe:reservable",
+    "vibe:open_late"
+  ],
+  "price": "price_final / 4 (0 = free ... 4 = $$$$)",
+  "imputation": {
+    "by_category": {
+      "Restaurants": {
+        "kids": 0.9103380695737384,
+        "groups": 0.9787362388779973,
+        "outdoor": 0.3206250588346042,
+        "live_music": 0.07481992099759895,
+        "dogs": 0.11774411279436028,
+        "alcohol": 0.5637664913339657,
+        "reservable": 0.60309130808129,
+        "open_late": 0.46715608043408874
+      },
+      "Cafes & Desserts": {
+        "kids": 0.9606656580937972,
+        "groups": 0.8507462686567164,
+        "outdoor": 0.463855421686747,
+        "live_music": 0.037929267042542285,
+        "dogs": 0.3035971223021583,
+        "alcohol": 0.20820760410380204,
+        "reservable": 0.110580204778157,
+        "open_late": 0.15065999089667728
+      },
+      "Bars & Nightlife": {
+        "kids": 0.09416299559471365,
+        "groups": 0.9994093325457767,
+        "outdoor": 0.5516769336071184,
+        "live_music": 0.35519528371407516,
+        "dogs": 0.17411764705882352,
+        "alcohol": 0.994140625,
+        "reservable": 0.6771907216494846,
+        "open_late": 0.9393939393939394
+      },
+      "Parks & Outdoors": {
+        "kids": 0.9833333333333333,
+        "groups": 0.9770689067998638,
+        "outdoor": 1.0,
+        "live_music": 0.0,
+        "dogs": 0.9687964338781575,
+        "alcohol": 0.5853785222698351,
+        "reservable": 0.5600529879305269,
+        "open_late": 0.17160883280757097
+      },
+      "Museums & Galleries": {
+        "kids": 0.8178913738019169,
+        "groups": 0.9770689067998638,
+        "outdoor": 0.4699316906562576,
+        "live_music": 0.0,
+        "dogs": 1.0,
+        "alcohol": 0.5853785222698351,
+        "reservable": 1.0,
+        "open_late": 0.022885572139303482
+      },
+      "Shows & Live Events": {
+        "kids": 0.6233062330623306,
+        "groups": 1.0,
+        "outdoor": 0.7272727272727273,
+        "live_music": 0.3088235294117647,
+        "dogs": 0.14285714285714285,
+        "alcohol": 0.96,
+        "reservable": 0.9552238805970149,
+        "open_late": 0.3333333333333333
+      },
+      "Attractions & Tours": {
+        "kids": 0.9904371584699454,
+        "groups": 0.9770689067998638,
+        "outdoor": 0.4699316906562576,
+        "live_music": 0.09476523231580238,
+        "dogs": 1.0,
+        "alcohol": 0.5853785222698351,
+        "reservable": 0.5600529879305269,
+        "open_late": 0.16460176991150444
+      },
+      "Games & Indoor Fun": {
+        "kids": 0.9506172839506173,
+        "groups": 0.9770689067998638,
+        "outdoor": 0.0,
+        "live_music": 0.0,
+        "dogs": 0.0,
+        "alcohol": 1.0,
+        "reservable": 0.16666666666666666,
+        "open_late": 0.291005291005291
+      },
+      "Sports & Fitness": {
+        "kids": 0.3161764705882353,
+        "groups": 1.0,
+        "outdoor": 0.5,
+        "live_music": 0.14285714285714285,
+        "dogs": 0.5,
+        "alcohol": 1.0,
+        "reservable": 0.6363636363636364,
+        "open_late": 0.17768924302788844
+      },
+      "Spas & Wellness": {
+        "kids": 0.12244897959183673,
+        "groups": 0.9770689067998638,
+        "outdoor": 0.0,
+        "live_music": 0.0,
+        "dogs": 1.0,
+        "alcohol": 0.5853785222698351,
+        "reservable": 1.0,
+        "open_late": 0.11369095276220977
+      },
+      "Libraries & Bookstores": {
+        "kids": 0.7742662574333398,
+        "groups": 0.9770689067998638,
+        "outdoor": 0.4699316906562576,
+        "live_music": 0.0,
+        "dogs": 0.20307416133737238,
+        "alcohol": 0.5853785222698351,
+        "reservable": 0.5600529879305269,
+        "open_late": 0.06964285714285715
+      },
+      "Shopping": {
+        "kids": 0.875,
+        "groups": 0.9770689067998638,
+        "outdoor": 0.2,
+        "live_music": 0.14285714285714285,
+        "dogs": 1.0,
+        "alcohol": 1.0,
+        "reservable": 0.5,
+        "open_late": 0.10939597315436242
+      }
+    },
+    "global": {
+      "kids": 0.7742662574333398,
+      "groups": 0.9770689067998638,
+      "outdoor": 0.4699316906562576,
+      "live_music": 0.09476523231580238,
+      "dogs": 0.20307416133737238,
+      "alcohol": 0.5853785222698351,
+      "reservable": 0.5600529879305269,
+      "open_late": 0.35405490691069735
+    }
+  }
+}

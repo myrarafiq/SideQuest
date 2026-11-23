@@ -1,1 +1,0 @@
-print("Hello, World! Our members are: Sheharyar Khan, Myra Rafiq, Jin Michael Qian, and Hendry Jimenez Tejeda.")
